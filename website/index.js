@@ -89,7 +89,7 @@ app.post('/343unihj3h3hy398h398h3/_update/34343', function(req, res, next){
 	var exec = require('child_process').exec,
     child;
 
-	child = exec('cd /home/storytimehq/website && git pull',
+	child = exec('cd /home/storytimehq/webserver && git pull',
 	  function (error, stdout, stderr) {
 	  	res.send(stdout + ' ---- ' + stderr)
 	});
