@@ -1,0 +1,21 @@
+{
+  "name": "storytimeisland.com",
+  "version": "0.0.1",
+  "description": "the website for storytimeisland",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "Ivy Davenport",
+  "license": "private",
+  "dependencies": {
+    "express": "~3.2.0",
+    "lodash": "~1.2.0",
+    "eyes": "~0.1.8",
+    "consolidate": "~0.9.0",
+    "dye": "~0.2.0",
+    "marked": "~0.2.8",
+    "ejs": "~0.8.3"
+  }
+}

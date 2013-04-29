@@ -1,0 +1,50 @@
+
+
+.navbar-inner {
+  min-height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #507eda;
+  background-image: -moz-linear-gradient(top, #86a4dc, #0046d7);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#86a4dc), to(#0046d7));
+  background-image: -webkit-linear-gradient(top, #86a4dc, #0046d7);
+  background-image: -o-linear-gradient(top, #86a4dc, #0046d7);
+  background-image: linear-gradient(to bottom, #86a4dc, #0046d7);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff86a4dc', endColorstr='#ff0046d7', GradientType=0);
+  border: 1px solid #00329a;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+  *zoom: 1;
+}
+
+.hero-unit {
+  padding: 60px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
+  color: inherit;
+  background-color: #b9e1ff;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+.carousel-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 15px;
+  background: #333333;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+#0046d7
+
+#5bc0de
