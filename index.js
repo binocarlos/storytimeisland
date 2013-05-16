@@ -12,7 +12,7 @@ var fs = require('fs');
 
 
 var program = require('commander');
-var version = require('../package.json').version;
+var version = require('./package.json').version;
 
 program
   .option('-p, --port <number>', 'port to listen on', '80')
