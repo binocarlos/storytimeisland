@@ -9,87 +9,98 @@ var engines = require('consolidate');
 var url = require('url');
 var dye = require('dye');
 var fs = require('fs');
-var marked = require('marked');
-
-marked.setOptions({
-  gfm: true,
-  tables: true,
-  breaks: false,
-  pedantic: false,
-  sanitize: false,
-  smartLists: true
-})
 
 
+var program = require('commander');
+var version = require('../package.json').version;
 
+program
+  .option('-p, --port <number>', 'port to listen on', '80')
+  .version(version)
+  
+program
+  .command('start')
+  .description('start the storytimeisland web server')
+  .action(function(env){
 
-console.log('creating web server');
+  	var port = program.port || 80;
 
-// create a spanking brand new Express App
-// it will save Sessions into Redis and so will survive a crash/restart
+  	runserver(port);
+  })
 
-var document_root = __dirname + '/www';
+program
+  .command('*')
+  .action(function(command){
+    console.log('command: "%s" not found', command);
+  });  
 
-var app = express();
-var server = http.createServer(app);
+program.parse(process.argv);
 
-app.use(express.favicon());
-app.use(express.query());
-app.use(express.bodyParser());
+function runserver(port){
 
-app.engine('ejs', engines.ejs);
-app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
+	// create a spanking brand new Express App
+	// it will save Sessions into Redis and so will survive a crash/restart
 
-function pagehandler(req, res, next){
-	var u = url.parse(req.url);
-	var file = u.pathname;
+	var document_root = __dirname + '/www';
 
-	if(!file.match(/\.\w+?/)){
-		file += 'index.html';
-	}
-	else if(!file.match(/\.(html?|md)$/)){
-		next();
-		return;
-	}
+	var app = express();
+	var server = http.createServer(app);
 
-	var markdownmode = false;
+	app.use(express.favicon());
+	app.use(express.query());
+	app.use(express.bodyParser());
 
-	function servecontent(content){
-		if(file.match(/\.md$/) || markdownmode){
-			//content = require( "markdown" ).markdown.toHTML( content);			
-			content = marked(content);
+	app.engine('ejs', engines.ejs);
+	app.set('view engine', 'ejs');
+	app.set('views', __dirname + '/views');
+
+	function pagehandler(req, res, next){
+		var u = url.parse(req.url);
+		var file = u.pathname;
+
+		if(!file.match(/\.\w+?/)){
+			file += 'index.html';
+		}
+		else if(!file.match(/\.(html?|md)$/)){
+			next();
+			return;
 		}
 
-		res.render('layout', {
-			body:content
+		var markdownmode = false;
+
+		function servecontent(content){
+			
+
+			res.render('layout', {
+				body:content
+			})
+		}
+
+		fs.readFile(document_root + file, 'utf8', function(error, content){
+			if(error || !content){
+				fs.readFile(document_root + file.replace(/\.html?$/, '.md'), 'utf8', function(error, content){
+					if(error || !content){
+						next();
+						return;
+					}
+					else{
+						markdownmode = true;
+						servecontent(content);
+					}
+				})
+				return;
+			}
+			else{
+				servecontent(content);
+			}
 		})
 	}
 
-	fs.readFile(document_root + file, 'utf8', function(error, content){
-		if(error || !content){
-			fs.readFile(document_root + file.replace(/\.html?$/, '.md'), 'utf8', function(error, content){
-				if(error || !content){
-					next();
-					return;
-				}
-				else{
-					markdownmode = true;
-					servecontent(content);
-				}
-			})
-			return;
-		}
-		else{
-			servecontent(content);
-		}
+	app.use(pagehandler);
+
+	app.use(express.static(document_root));
+
+	server.listen(port, function(error){
+		console.log(dye.yellow('storytime island webserver listening on port: ') + dye.red(port));
 	})
 }
-
-app.use(pagehandler);
-
-app.use(express.static(document_root));
-
-server.listen(80, function(error){
-	console.log(dye.yellow('storytime island webserver listening on port: ') + dye.red(80));
-})
