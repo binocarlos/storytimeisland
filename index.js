@@ -11,6 +11,24 @@ var dye = require('dye');
 var fs = require('fs');
 
 var port = process.argv[2] || 8001;
+var config_file = process.argv[2] || '/srv/digger/config.json';
+
+var config = {};
+
+if(fs.existsSync(config_file)){
+	config = require(config_file);
+}
+
+config = _.defaults(config, {
+	redis:{
+		hostname:'database',
+		port:6379
+	},
+	mongo:{
+		hostname:'database',
+		port:27017
+	}
+})
 
 // create a spanking brand new Express App
 // it will save Sessions into Redis and so will survive a crash/restart
