@@ -10,7 +10,7 @@ var url = require('url');
 var dye = require('dye');
 var fs = require('fs');
 
-var port = process.argv[2] || 8001;
+var port = process.argv[2] || 80;
 
 var config = {};
 
