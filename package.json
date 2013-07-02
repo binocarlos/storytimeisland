@@ -1,6 +1,6 @@
 {
   "name": "storytimeisland.com",
-  "private":true,
+  "private": true,
   "version": "0.0.2",
   "description": "the website for storytimeisland",
   "main": "index.js",
@@ -16,6 +16,7 @@
     "eyes": "~0.1.8",
     "consolidate": "~0.9.0",
     "dye": "~0.2.0",
-    "ejs": "~0.8.3"
+    "ejs": "~0.8.3",
+    "statsd-client": "0.0.12"
   }
 }

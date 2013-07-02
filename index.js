@@ -9,6 +9,9 @@ var engines = require('consolidate');
 var url = require('url');
 var dye = require('dye');
 var fs = require('fs');
+var StatsDClient = require('statsd-client');
+
+var stats = new StatsDClient({host: 'hq.local', port: 8125, prefix: 'app.storytimeisland',  debug: false});
 
 var port = process.argv[2] || 80;
 
@@ -71,6 +74,7 @@ function pagehandler(req, res, next){
 	})
 }
 
+app.use(stats.helpers.getExpressMiddleware('website'));
 app.use(pagehandler);
 
 app.use(express.static(document_root));
