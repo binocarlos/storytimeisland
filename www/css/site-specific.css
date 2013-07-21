@@ -195,6 +195,17 @@ a.thumbnail:hover {
   border-color: #79afe1;
 }
 
+a{
+
+color: #0661A4;
+
+}
+
+a:hover{
+
+color: #053d66;
+}
+
 hr {
  border-top: 1px solid #c5dcec;
   
@@ -209,4 +220,11 @@ hr {
 .centerh1{
   text-align: center;
 
+}
+
+.bluep{
+
+  text-align: left;
+
+  color: #0661A4;
 }
