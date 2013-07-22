@@ -52,16 +52,21 @@ body {
 #nav-menu{
 
   background-color: #dbf0ff; 
-  font-weight: ;
-
-  font-size: 17px;
-
-
   
-  line-height: 22px;
+
+  font-size: 18px;
+
+  padding-top: 5px;
+  padding-bottom: 1px;
+  
+  
+  line-height: 30px;
   text-align: center;
-  min-height: 33px;
+  min-height: 40px;
   font-color: #dbf0ff;
+}
+.pnav{
+  margin: 5px;
 }
 
 #nav-menu a:hover{
@@ -72,11 +77,11 @@ text-decoration: none;
 
 .header{
 
-  background: url(/img/village.png) center top no-repeat ;
+  
 
   text-align: center;
 
-  padding-bottom: 100px;
+ 
  
 }
 
@@ -272,6 +277,20 @@ hr {
 
 
   color: #0661A4;
+
+}
+
+.indexh2{
+
+border-top: 1px solid #c5dcec;
+border-bottom: 1px solid #c5dcec;
+  
+text-align: center;
+
+font-family: 'Dosis', sans-serif;
+
+
+color: #0661A4;
 
 }
 
