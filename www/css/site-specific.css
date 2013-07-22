@@ -307,11 +307,46 @@ color: #0661A4;
 
 .googleh2{
 
-   border-top: 1px solid #c5dcec;
+  border-top: 1px solid #c5dcec;
   border-bottom: 1px solid #c5dcec;
+
+
+
 
   padding-top: 5px;
   padding-bottom: 5px;
+
+
+
+  width: 460px;
+
+
+  text-align: right;
+
+  font-family: 'Courgette', cursive;
+
+
+
+  color: #0661A4;
+
+}
+
+.feedbackh2{
+
+
+  border-top: 1px solid #c5dcec;
+  border-bottom: 1px solid #c5dcec;
+
+
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+
+
+
+
+  width: 460px;
 
 
   text-align: center;
@@ -322,7 +357,10 @@ color: #0661A4;
 
   color: #0661A4;
 
+
+
 }
+
 
 .indexh4{
 
