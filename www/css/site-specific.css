@@ -7,6 +7,8 @@ body {
   /* The html and body elements cannot have any padding or margin. */
 }
 
+
+
 /* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;
@@ -45,6 +47,30 @@ body {
 #homepagemap{
   height:550px;
   background-color:#f5f5f5;
+}
+
+#nav-menu{
+
+  background-color: #dbf0ff; 
+  font-weight: bold;
+
+  font-size: 17px;
+  
+  line-height: 22px;
+  text-align: center;
+  min-height: 33px;
+  font-color: #dbf0ff;
+}
+
+.header{
+
+
+padding-bottom: 10px;  
+}
+
+#headerlogo{
+
+  text-align: center;
 }
 
 .logo{
@@ -214,7 +240,9 @@ hr {
 .contacth2{
   text-align: center;
 
-  
+  font-family: 'Dosis', sans-serif;
+
+
 
   color: #0661A4;
 }
