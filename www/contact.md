@@ -67,6 +67,6 @@
 
 
 <!-- Landscape image above footer-->
-<img src="/img/village.png">
+<img src="/img/contact/village.png">
  
 <!--End of Contact Page-->
