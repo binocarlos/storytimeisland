@@ -52,9 +52,11 @@ body {
 #nav-menu{
 
   background-color: #dbf0ff; 
-  font-weight: bold;
+  font-weight: ;
 
   font-size: 17px;
+
+
   
   line-height: 22px;
   text-align: center;
@@ -62,10 +64,20 @@ body {
   font-color: #dbf0ff;
 }
 
+#nav-menu a:hover{
+
+color: #ebbd05;
+text-decoration: none;
+}
+
 .header{
 
+  background: url(/img/village.png) center top no-repeat ;
 
-padding-bottom: 10px;  
+  text-align: center;
+
+  padding-bottom: 100px;
+ 
 }
 
 #headerlogo{
@@ -230,6 +242,7 @@ color: #0661A4;
 a:hover{
 
 color: #053d66;
+text-decoration: none;
 }
 
 hr {
@@ -245,6 +258,21 @@ hr {
 
 
   color: #0661A4;
+}
+
+.cath2{
+  border-top: 1px solid #c5dcec;
+  border-bottom: 1px solid #c5dcec;
+  padding-top: 10px;
+  padding-bottom: 10px;
+ text-align: center;
+
+  font-family: 'Dosis', sans-serif;
+
+
+
+  color: #0661A4;
+
 }
 
 .centerh1{
