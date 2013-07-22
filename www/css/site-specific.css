@@ -256,9 +256,11 @@ hr {
 }
 
 .contacth2{
+
+
   text-align: center;
 
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Courgette', cursive;
 
 
 
@@ -287,11 +289,52 @@ border-bottom: 1px solid #c5dcec;
   
 text-align: center;
 
-font-family: 'Dosis', sans-serif;
+font-family: 'Courgette', cursive;
+
+color: #0661A4;
+
+}
+
+.indexh3{
+text-align: center;
+
+font-family: 'Courgette', cursive;
 
 
 color: #0661A4;
 
+}
+
+.googleh2{
+
+   border-top: 1px solid #c5dcec;
+  border-bottom: 1px solid #c5dcec;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+
+  text-align: center;
+
+  font-family: 'Courgette', cursive;
+
+
+
+  color: #0661A4;
+
+}
+
+.indexh4{
+
+  border-top: 1px solid #c5dcec;
+border-bottom: 1px solid #c5dcec;
+text-align: center;
+
+font-family: 'Courgette', cursive;
+
+
+color: #0661A4;
+  
 }
 
 .centerh1{
