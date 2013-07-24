@@ -54,7 +54,7 @@ body {
   background-color: #dbf0ff; 
   
 
-  font-size: 18px;
+  font-size: 20px;
 
   padding-top: 5px;
   padding-bottom: 1px;
@@ -67,6 +67,7 @@ body {
 }
 .pnav{
   margin: 5px;
+
 }
 
 #nav-menu a:hover{
