@@ -47,11 +47,16 @@ function pagehandler(req, res, next){
 	var markdownmode = false;
 
 	function servecontent(content){
-		
 
-		res.render('layout', {
-			body:content
-		})
+		if(content.indexOf('<!-- storytimewrapper -->')==0){
+			res.render('layout', {
+				body:content
+			})	
+		}
+		else{
+			res.send(content);
+		}
+		
 	}
 
 	fs.readFile(document_root + file, 'utf8', function(error, content){
