@@ -1,0 +1,27 @@
+<script src="/js/jquery.js"></script>
+<div id="cat">
+
+</div>
+
+<style>
+#cat{
+	width:200px;
+	height:200px;
+	background-color: red;
+}
+</style>
+
+<script>
+
+	$(function(){
+		console.log('-------------------------------------------');
+		console.log('WE ARE HERE');
+		
+		var cat = $('#cat');
+
+		cat.click(function(){
+			alert('hello');
+		})
+	})
+  
+</script>
