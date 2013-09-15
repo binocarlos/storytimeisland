@@ -376,6 +376,22 @@ color: #0661A4;
   
 }
 
+.splith2{
+
+  border-top: 1px solid #c5dcec;
+border-bottom: 1px solid #c5dcec;
+
+padding-top: 2px;
+padding-bottom: 2px;
+text-align: center;
+
+font-family: 'Courgette', cursive;
+
+
+color: #0661A4;
+  
+}
+
 .centerh1{
   text-align: center;
 
