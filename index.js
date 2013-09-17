@@ -8,7 +8,7 @@ var http = require('http');
 var engines = require('consolidate');
 var url = require('url');
 var dye = require('dye');
-var fs = require('fs');
+var fs = require('graceful-fs');
 //var StatsDClient = require('statsd-client');
 
 //var stats = new StatsDClient({host: 'hq.local', port: 8125, prefix: 'app.storytimeisland',  debug: false});
