@@ -1,7 +1,7 @@
 {
   "name": "storytimeisland.com",
   "private": true,
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "the website for storytimeisland",
   "main": "index.js",
   "scripts": {
