@@ -2,13 +2,12 @@
 //setup Dependencies
 
 var express = require('express');
-var _ = require('lodash');
-var eyes = require('eyes');
+
 var http = require('http');
-var engines = require('consolidate');
 var url = require('url');
-var dye = require('dye');
+var engines = require('consolidate');
 var fs = require('graceful-fs');
+
 //var StatsDClient = require('statsd-client');
 
 //var stats = new StatsDClient({host: 'hq.local', port: 8125, prefix: 'app.storytimeisland',  debug: false});
@@ -32,58 +31,35 @@ app.engine('ejs', engines.ejs);
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
-function pagehandler(req, res, next){
-	var u = url.parse(req.url);
-	var file = u.pathname;
-
-	if(!file.match(/\.\w+?/)){
-		file += 'index.html';
+app.use(function(req, res, next){
+	if(req.url=='/'){
+		req.url = '/index.html';
 	}
-	else if(!file.match(/\.(html?|md)$/)){
+
+	if(req.url.match(/\.html$/)){
+		fs.readFile(document_root + req.url, 'utf8', function(error, content){
+			if(error || !content){
+				res.statusCode=404;
+				res.send(req.url + ' not found');
+				return;	
+			}
+			if(content.indexOf('<!-- storytimewrapper -->')==0){
+				res.render('layout', {
+					body:content
+				})
+			}
+			else{
+				res.send(content);
+			}
+		})
+	}
+	else{
 		next();
-		return;
 	}
-
-	var markdownmode = false;
-
-	function servecontent(content){
-
-		if(content.indexOf('<!-- storytimewrapper -->')==0){
-			res.render('layout', {
-				body:content
-			})	
-		}
-		else{
-			res.send(content);
-		}
-		
-	}
-
-	fs.readFile(document_root + file, 'utf8', function(error, content){
-		if(error || !content){
-			fs.readFile(document_root + file.replace(/\.html?$/, '.md'), 'utf8', function(error, content){
-				if(error || !content){
-					next();
-					return;
-				}
-				else{
-					markdownmode = true;
-					servecontent(content);
-				}
-			})
-			return;
-		}
-		else{
-			servecontent(content);
-		}
-	})
-}
-
-//app.use(stats.helpers.getExpressMiddleware('website'));
-app.use(pagehandler);
+})
 
 app.use(express.static(document_root));
 
 server.listen(port, function(error){
-	console.log(dye.yellow('storytime island webserver listening on port: ') + dye.red(port));
+	console.log('storytime island webserver listening on port: ' + port);
 })
