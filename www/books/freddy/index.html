@@ -1,0 +1,2823 @@
+<html>
+<head>
+  <title>Freddy the Fisherman</title>
+  <link rel="stylesheet" type="text/css" href="build/build.css">
+  <!--[if lte IE 9]>
+    <script src="build/storytimeislandbook/shim.js"></script>
+  <![endif]-->
+  <style type="text/css">
+
+
+
+    #bookviewer .pagebg1{
+      background:url(images/page1.png);
+    }
+
+
+
+    #bookviewer .pagebg2{
+      background:url(images/page2.png);
+    }
+
+
+
+    #bookviewer .pagebg3{
+      background:url(images/page3.png);
+    }
+
+
+
+    #bookviewer .pagebg4{
+      background:url(images/page4.png);
+    }
+
+
+
+    #bookviewer .pagebg5{
+      background:url(images/page5.png);
+    }
+
+
+
+    #bookviewer .pagebg6{
+      background:url(images/page6.png);
+    }
+
+
+
+    #bookviewer .pagebg7{
+      background:url(images/page7.png);
+    }
+
+
+
+    #bookviewer .pagebg8{
+      background:url(images/page8.png);
+    }
+
+
+
+    #bookviewer .pagebg9{
+      background:url(images/page9.png);
+    }
+
+
+
+    #bookviewer .pagebg10{
+      background:url(images/page10.png);
+    }
+
+
+
+    #bookviewer .pagebg11{
+      background:url(images/page11.png);
+    }
+
+
+
+    #bookviewer .pagebg12{
+      background:url(images/page12.png);
+    }
+
+
+
+    #bookviewer .pagebg13{
+      background:url(images/page13.png);
+    }
+
+
+
+    #bookviewer .pagebg14{
+      background:url(images/page14.png);
+    }
+
+
+
+    #bookviewer .pagebg15{
+      background:url(images/page15.png);
+    }
+
+
+
+    #bookviewer .pagebg16{
+      background:url(images/page16.png);
+    }
+
+
+
+    #bookviewer .pagebg17{
+      background:url(images/page17.png);
+    }
+
+
+
+    #bookviewer .pagebg18{
+      background:url(images/page18.png);
+    }
+
+
+
+    #bookviewer .pagebg19{
+      background:url(images/page19.png);
+    }
+
+
+
+    #bookviewer .pagebg20{
+      background:url(images/page20.png);
+    }
+
+
+
+    #bookviewer .pagebg21{
+      background:url(images/page21.png);
+    }
+
+
+  </style>
+</head>
+<body>
+  
+  <div id="home">
+
+  </div>
+
+  <table width=100% height=100% cellspacing=0 cellpadding=0>
+    <tr>
+      <td align=center valign=middle>
+        <div id="bookviewer">
+            
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="arrow leftarrow"></div>
+  <div class="arrow rightarrow"></div>
+  
+  <div id="homebutton">
+    <img src="build/storytimeislandbook/img/home.png" />
+  </div>
+
+  <div id="teddybutton">
+    <img class="normal" src="build/storytimeislandbook/img/cornertab.png" />
+    <img class="highlight" src="build/storytimeislandbook/img/cornertabactive.png" />
+  </div>
+
+
+  <script id="homepagetemplate" type="text/template">
+
+    <div id="homeloading">
+      <table width="100%" height="100%">
+        <tr>
+          <td align=center valign=middle>
+            <img src="build/storytimeislandbook/img/buddy.png" />
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="homeloaded" style="display:none;">
+      <table width="100%">
+        <tr>
+          <td colspan=3 align=center height=1>
+            <img id="logoimage" src="build/storytimeislandbook/img/logo.png" />
+          </td>
+        </tr>
+        <tr>
+          <td width=50% align=right valign=top>
+            <div id="nobubblebutton" class="pointercursor tapbutton">
+              <img id="nobubbleimage" src="build/storytimeislandbook/img/nobubble.png" /><br /><br />
+              <div id="nobubbletab" class="homepagetab">grownup reads</div>
+            </div>
+          </td>
+          <td align=center width=1 id="booktd" style="padding-top:0px;">
+            <img id="frontpageimage" class="pointercursor boxshadow tapbutton" src="icons/frontpage.png" />
+          </td>
+          <td width=50% align=left valign=top>
+            <div id="bubblebutton" class="pointercursor tapbutton">
+              <img id="bubbleimage" src="build/storytimeislandbook/img/bubble.png" /><br /><br />
+              <div id="bubbletab" class="homepagetab">reads itself</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div id="teddyholder"></div>
+    </div>
+  </script>
+
+  <script id="lastpagetemplate" type="text/template">
+    <div>
+	<table width=100% height=100% border=0>
+		<tr>
+			<td align=center valign=middle>
+				YO THIS IS THE LAST PAGE
+			</td>
+		</tr>
+	</table>
+</div>
+
+  </script>
+  
+  <script id="teddytemplate" type="text/template">
+    <div id="teddy">
+      <div class="body"></div>
+      <div class="lefteye"></div>
+      <div class="righteye"></div>
+      <div class="mouth">
+        <div class="mouthimg"></div>
+      </div>
+      <div class="arm"></div>
+    </div>
+  </script>
+
+  <script>
+    window.$storytimebook = {
+    "config": {
+        "pages": 21,
+        "width": 2048,
+        "height": 1536,
+        "title": "Freddy the Fisherman",
+        "id": "freddy",
+        "author": "Annie Davenport",
+        "description": "Freddy is a fisherman.  One day he takes his boat out fishing only to discover a lot more than fish!",
+        "book": {
+            "page_thickness": 14,
+            "animation_time": 600
+        },
+        "test_page_OFF": 16,
+        "highlighters": [
+            [],
+            [
+                384,
+                581,
+                792,
+                1139,
+                1478,
+                2604,
+                2830,
+                3221,
+                3421,
+                3998,
+                4183,
+                4903,
+                5069,
+                5330,
+                5520,
+                5806,
+                6307,
+                6442,
+                6683,
+                7229,
+                7415,
+                7580,
+                8106,
+                8497,
+                8700
+            ],
+            [
+                579,
+                739,
+                1026,
+                1307,
+                1450,
+                1565,
+                1840,
+                2184,
+                2315,
+                2659,
+                3100,
+                3200,
+                3330,
+                4000,
+                4212,
+                4321,
+                4450,
+                4768,
+                5000,
+                5250,
+                5500
+            ],
+            [
+                451,
+                609,
+                935,
+                1177,
+                1702,
+                1827,
+                1952,
+                2328,
+                3388,
+                3788,
+                4000,
+                4372,
+                4514,
+                5140,
+                5332,
+                5449,
+                5741,
+                6000,
+                6266,
+                7000,
+                7518,
+                7793,
+                7952
+            ],
+            [
+                516,
+                707,
+                954,
+                1290,
+                1470,
+                1605,
+                2031,
+                2222,
+                2500,
+                2749,
+                3063,
+                3254,
+                3400,
+                3759,
+                3961,
+                5105,
+                5588,
+                6000,
+                6396,
+                6542,
+                6732,
+                6850,
+                7000,
+                7439,
+                8651,
+                8954,
+                9122,
+                9234,
+                9369,
+                9717,
+                10211,
+                10379,
+                10502,
+                10648,
+                11000
+            ],
+            [
+                460,
+                659,
+                989,
+                1327,
+                1526,
+                1742,
+                1830,
+                1978,
+                2498,
+                2723,
+                3105,
+                3912,
+                4146,
+                4276,
+                5733,
+                6141,
+                6384,
+                6488,
+                6687,
+                6921,
+                7034,
+                7338,
+                7528,
+                7875,
+                8248
+            ],
+            [
+                586,
+                1006,
+                1261,
+                1388,
+                1834,
+                1936,
+                2089,
+                3209,
+                3400,
+                3579,
+                3744,
+                4024,
+                4190,
+                5043,
+                5209,
+                5425,
+                5884,
+                6126,
+                6572,
+                8113,
+                8520,
+                8902,
+                9119,
+                9373,
+                9985,
+                10239,
+                10469,
+                10596,
+                10813,
+                11640,
+                11793,
+                12112,
+                12621,
+                12850,
+                13169
+            ],
+            [
+                804,
+                1206,
+                1468,
+                1993,
+                2167,
+                2430,
+                2639,
+                3164,
+                3740,
+                4003,
+                4387,
+                4964,
+                5051,
+                5139,
+                5750,
+                5890,
+                6450,
+                7376,
+                7795,
+                7970,
+                8285,
+                8372,
+                9106,
+                9368,
+                9473,
+                10819,
+                11029,
+                11466,
+                12043,
+                12515,
+                12689,
+                13441,
+                13668,
+                14053,
+                14262,
+                14699,
+                14787,
+                14874,
+                15276,
+                15801,
+                16098,
+                16360,
+                16535,
+                16884,
+                17251,
+                17409,
+                17513,
+                17863
+            ],
+            [
+                548,
+                1124,
+                1356,
+                1631,
+                1973,
+                2124,
+                2905,
+                3000,
+                3100,
+                3384,
+                3932,
+                4097,
+                4261,
+                4465,
+                5015,
+                5193,
+                5357,
+                5604,
+                6769,
+                6933,
+                7139,
+                7276,
+                7618,
+                7865,
+                8139,
+                8418,
+                8714,
+                9509,
+                9646,
+                9783,
+                10153,
+                10537,
+                10674,
+                10920,
+                11112,
+                11359,
+                12044,
+                12386,
+                12825,
+                13962
+            ],
+            [
+                610,
+                889,
+                1041,
+                1174,
+                1339,
+                1651,
+                2314,
+                2646,
+                3031,
+                3196,
+                3481,
+                4158,
+                4237,
+                4357,
+                4788,
+                4920,
+                5630,
+                5749,
+                5862
+            ],
+            [
+                422,
+                833,
+                1180,
+                1549,
+                1676,
+                2234,
+                2688,
+                2888,
+                3204,
+                3605,
+                4216,
+                4553,
+                4890,
+                5207,
+                5470,
+                5628,
+                6556,
+                6735,
+                7346,
+                7525,
+                7947,
+                8242,
+                8506,
+                8632,
+                9159,
+                9739,
+                10066,
+                10139,
+                10297
+            ],
+            [
+                316,
+                649,
+                777,
+                1187,
+                1461,
+                1683,
+                2144,
+                2358,
+                3092,
+                3553,
+                3767,
+                4177,
+                4792,
+                5031,
+                5415,
+                6082,
+                6201,
+                6398,
+                6782,
+                7337,
+                7636,
+                8089
+            ],
+            [
+                278,
+                734,
+                923,
+                1556,
+                1967,
+                2093,
+                2700,
+                2979,
+                3156,
+                3662,
+                3788,
+                3946,
+                4578,
+                4724,
+                5002,
+                5445,
+                5856,
+                6096
+            ],
+            [
+                523,
+                1149,
+                1468,
+                1769,
+                1871,
+                2100,
+                2461,
+                2683,
+                2984,
+                3261,
+                3712,
+                3905,
+                4037,
+                4566,
+                4939,
+                5349,
+                5692
+            ],
+            [
+                308,
+                539,
+                692,
+                975,
+                1231,
+                1975,
+                2334,
+                2449,
+                2808,
+                3090,
+                3514,
+                3898,
+                4116,
+                4540,
+                4890,
+                5655,
+                6053,
+                6425,
+                6719,
+                6848,
+                8297,
+                8476,
+                8771,
+                8925,
+                9182,
+                9477,
+                9669,
+                10207,
+                10310,
+                10438,
+                11272,
+                11464,
+                11810,
+                11875,
+                12580,
+                13041
+            ],
+            [
+                930,
+                1643,
+                1892,
+                2175,
+                2424,
+                2639,
+                2805,
+                3552,
+                3669,
+                3835,
+                4133,
+                4382,
+                4923,
+                5959,
+                6291,
+                6491,
+                6823,
+                7205,
+                7404,
+                7536,
+                8118,
+                8284,
+                8582,
+                8782,
+                9197,
+                9280,
+                9396,
+                9811,
+                10823,
+                11222,
+                11355,
+                11985,
+                12281,
+                12683,
+                12882,
+                13048,
+                13264,
+                13894,
+                14094,
+                14210,
+                14625,
+                14758,
+                15123,
+                15256,
+                15505,
+                16169,
+                16368,
+                16617,
+                16833
+            ],
+            [
+                926,
+                1355,
+                1623,
+                1865,
+                2093,
+                2361,
+                2630,
+                2804,
+                3475,
+                3649,
+                3877,
+                4213,
+                4347,
+                4521,
+                5125,
+                5286,
+                5581,
+                5917,
+                6265,
+                6587,
+                6789,
+                6896,
+                7124,
+                7325,
+                8439,
+                8640,
+                9177,
+                9807,
+                10411,
+                10545,
+                10720,
+                11390,
+                11484,
+                12397,
+                13135,
+                13403
+            ],
+            [
+                405,
+                877,
+                1496,
+                1698,
+                1833,
+                1934,
+                2361,
+                2800,
+                3002,
+                3306,
+                3475,
+                3610,
+                4228,
+                4419,
+                4273,
+                4858,
+                5094,
+                5341,
+                5499,
+                5746,
+                6961,
+                7096,
+                7264,
+                7455,
+                7590,
+                7770,
+                7894,
+                8501,
+                8636,
+                8906,
+                9322,
+                9480,
+                9727,
+                10402,
+                10683,
+                10840,
+                11020,
+                11313,
+                12370,
+                12696,
+                12831,
+                12977,
+                13370,
+                13640,
+                14180,
+                14293,
+                14360
+            ],
+            [
+                420,
+                602,
+                728,
+                1083,
+                1363,
+                1596,
+                1909,
+                2035,
+                2157,
+                2815,
+                3156,
+                3422,
+                3837,
+                4327,
+                4551,
+                4846,
+                4944,
+                5172,
+                5382,
+                5620,
+                5826
+            ],
+            [
+                464,
+                653,
+                914,
+                1240,
+                1415,
+                1893,
+                2154,
+                2394,
+                2633,
+                2873,
+                3047,
+                3612,
+                3837,
+                4534,
+                5332,
+                5709,
+                5948,
+                6057,
+                6224,
+                6550,
+                7312,
+                7428,
+                7551,
+                7704,
+                8530,
+                8879,
+                9183,
+                9321
+            ]
+        ]
+    },
+    "pages": [
+        {
+            "x": "45",
+            "y": "19.15",
+            "width": "891.8",
+            "height": "132.05",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "0",
+            "text": "Freddy the Fisherman",
+            "number": "1"
+        },
+        {
+            "x": "45",
+            "y": "19.15",
+            "width": "1001.95",
+            "height": "732.5",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {
+                "sounds": {
+                    "test1": {
+                        "prop": "val"
+                    }
+                }
+            },
+            "dictionary_length": "7",
+            "text": "It was just past sunrise.  \nThe birds were awake  \nand Freddy was  \ngetting his boat ready  \nto go fishing in the  \ndeep blue sea.",
+            "number": "2",
+            "dictionary": [
+                {
+                    "name": "sail_2",
+                    "x": "1304.25",
+                    "y": "242.1",
+                    "width": "696.4",
+                    "height": "479.9"
+                },
+                {
+                    "name": "seagull_3",
+                    "x": "55.95",
+                    "y": "794.15",
+                    "width": "248",
+                    "height": "208.05"
+                },
+                {
+                    "name": "sail_1",
+                    "x": "404.05",
+                    "y": "755",
+                    "width": "536.45",
+                    "height": "256.05"
+                },
+                {
+                    "name": "seagull_1",
+                    "x": "1036.2",
+                    "y": "346.05",
+                    "width": "135.9",
+                    "height": "160"
+                },
+                {
+                    "name": "seagull_2",
+                    "x": "1036.2",
+                    "y": "610.15",
+                    "width": "135.9",
+                    "height": "160"
+                },
+                {
+                    "name": "boat_1",
+                    "x": "291.9",
+                    "y": "1059.25",
+                    "width": "1752.85",
+                    "height": "479.9"
+                },
+                {
+                    "name": "sea_1",
+                    "x": "19.95",
+                    "y": "1002.2",
+                    "width": "248",
+                    "height": "508.15"
+                }
+            ]
+        },
+        {
+            "x": "45",
+            "y": "19.15",
+            "width": "981.65",
+            "height": "612.4",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "11",
+            "text": "He headed out in his  \nlittle boat to catch fish  \nfor the village, back on  \nthe shore where  \nhe lived.",
+            "number": "3",
+            "dictionary": [
+                {
+                    "name": "seagull_3",
+                    "x": "848.2",
+                    "y": "892.25",
+                    "width": "208.05",
+                    "height": "208.05"
+                },
+                {
+                    "name": "flag_1",
+                    "x": "1136.3",
+                    "y": "16.15",
+                    "width": "208.05",
+                    "height": "208.05"
+                },
+                {
+                    "name": "sky_1",
+                    "x": "19.95",
+                    "y": "498.2",
+                    "width": "624.15",
+                    "height": "420.15"
+                },
+                {
+                    "name": "boat_1",
+                    "x": "868",
+                    "y": "1108.3",
+                    "width": "1179.95",
+                    "height": "279.9"
+                },
+                {
+                    "name": "sail_2",
+                    "x": "976.2",
+                    "y": "460.1",
+                    "width": "272.15",
+                    "height": "424.05"
+                },
+                {
+                    "name": "sail_1",
+                    "x": "1320.25",
+                    "y": "262.05",
+                    "width": "480.25",
+                    "height": "536.2"
+                },
+                {
+                    "name": "sea_1",
+                    "x": "-13.85",
+                    "y": "950.25",
+                    "width": "819.9",
+                    "height": "575.95"
+                },
+                {
+                    "name": "cloud_1",
+                    "x": "1820.4",
+                    "y": "158.1",
+                    "width": "208.05",
+                    "height": "208.05"
+                },
+                {
+                    "name": "cloud_2",
+                    "x": "1820.4",
+                    "y": "474.15",
+                    "width": "208.05",
+                    "height": "208.05"
+                },
+                {
+                    "name": "seagulls_1",
+                    "x": "976.2",
+                    "y": "244.2",
+                    "width": "208.05",
+                    "height": "208.05"
+                },
+                {
+                    "name": "seagull_4",
+                    "x": "668.1",
+                    "y": "628.55",
+                    "width": "208.05",
+                    "height": "208.05"
+                }
+            ]
+        },
+        {
+            "x": "48.55",
+            "y": "21.2",
+            "width": "1706.8",
+            "height": "732.5",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "18",
+            "text": "The wind was good and the weather fair. \nFreddy was fixing his nets when he saw \na pink whale \nswimming \naround \nthe boat.",
+            "number": "4",
+            "dictionary": [
+                {
+                    "name": "whale_1",
+                    "x": "294.1",
+                    "y": "1162.35",
+                    "width": "680.05",
+                    "height": "268.2"
+                },
+                {
+                    "name": "boat_1",
+                    "x": "884.25",
+                    "y": "996.1",
+                    "width": "680.05",
+                    "height": "268.2"
+                },
+                {
+                    "name": "cloud_1",
+                    "x": "1376.25",
+                    "y": "306.05",
+                    "width": "256.15",
+                    "height": "175.85"
+                },
+                {
+                    "name": "sea_1",
+                    "x": "18.2",
+                    "y": "970.35",
+                    "width": "767.95",
+                    "height": "192"
+                },
+                {
+                    "name": "sea_2",
+                    "x": "1564.3",
+                    "y": "982.3",
+                    "width": "484.2",
+                    "height": "553.7"
+                },
+                {
+                    "name": "sea_3",
+                    "x": "960.1",
+                    "y": "1253.55",
+                    "width": "604.05",
+                    "height": "282.55"
+                },
+                {
+                    "name": "sea_5",
+                    "x": "-1.8",
+                    "y": "1154.35",
+                    "width": "275.9",
+                    "height": "371.9"
+                },
+                {
+                    "name": "sea_6",
+                    "x": "286.05",
+                    "y": "1430.55",
+                    "width": "655.95",
+                    "height": "91.85"
+                },
+                {
+                    "name": "sky_2",
+                    "x": "1746.45",
+                    "y": "30.05",
+                    "width": "275.9",
+                    "height": "272.05"
+                },
+                {
+                    "name": "sky_1",
+                    "x": "10.15",
+                    "y": "698.3",
+                    "width": "275.9",
+                    "height": "272.05"
+                },
+                {
+                    "name": "sail_1",
+                    "x": "908.2",
+                    "y": "458.1",
+                    "width": "512.05",
+                    "height": "484.1"
+                },
+                {
+                    "name": "flag_1",
+                    "x": "976.25",
+                    "y": "306.05",
+                    "width": "159.95",
+                    "height": "144.05"
+                },
+                {
+                    "name": "seagulls_7",
+                    "x": "1658.3",
+                    "y": "310.5",
+                    "width": "256.15",
+                    "height": "175.85"
+                },
+                {
+                    "name": "seagulls_2",
+                    "x": "584.1",
+                    "y": "390.1",
+                    "width": "275.9",
+                    "height": "428.05"
+                },
+                {
+                    "name": "seagull_6",
+                    "x": "302.1",
+                    "y": "750.7",
+                    "width": "275.9",
+                    "height": "192"
+                },
+                {
+                    "name": "seagulls_8",
+                    "x": "1548.3",
+                    "y": "622.3",
+                    "width": "456.3",
+                    "height": "107.9"
+                },
+                {
+                    "name": "cloud_2",
+                    "x": "1444.3",
+                    "y": "486.45",
+                    "width": "504.25",
+                    "height": "135.85"
+                },
+                {
+                    "name": "cloud_3",
+                    "x": "1480.25",
+                    "y": "730.2",
+                    "width": "296.25",
+                    "height": "135.85"
+                }
+            ]
+        },
+        {
+            "x": "40.6",
+            "y": "29.05",
+            "width": "1653.95",
+            "height": "732.5",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "17",
+            "text": "He was friends with the whale and gave \nhim fish when his catch was good. \nWhales always knew where to  \nfind the most fish. Freddy had  \nlearned to follow them to  \nget the biggest catches.",
+            "number": "5",
+            "dictionary": [
+                {
+                    "name": "whale_1",
+                    "x": "408.05",
+                    "y": "1180.15",
+                    "width": "680.05",
+                    "height": "268.2"
+                },
+                {
+                    "name": "seagull_1",
+                    "x": "168.05",
+                    "y": "898.2",
+                    "width": "159.95",
+                    "height": "144.05"
+                },
+                {
+                    "name": "cloud_1",
+                    "x": "1732.4",
+                    "y": "174.05",
+                    "width": "292",
+                    "height": "232"
+                },
+                {
+                    "name": "sky_1",
+                    "x": "1266.3",
+                    "y": "234.1",
+                    "width": "452.15",
+                    "height": "440.1"
+                },
+                {
+                    "name": "sky_3",
+                    "x": "338.1",
+                    "y": "720",
+                    "width": "380.25",
+                    "height": "460.15"
+                },
+                {
+                    "name": "sky_2",
+                    "x": "0",
+                    "y": "758.55",
+                    "width": "156.1",
+                    "height": "420.1"
+                },
+                {
+                    "name": "sea_1",
+                    "x": "0",
+                    "y": "1180.15",
+                    "width": "420.4",
+                    "height": "355.7"
+                },
+                {
+                    "name": "sea_2",
+                    "x": "1088.1",
+                    "y": "1180.15",
+                    "width": "224.35",
+                    "height": "315.65"
+                },
+                {
+                    "name": "sky_4",
+                    "x": "888.1",
+                    "y": "736.2",
+                    "width": "264.05",
+                    "height": "420.1"
+                },
+                {
+                    "name": "seagull_2",
+                    "x": "728.15",
+                    "y": "874.15",
+                    "width": "159.95",
+                    "height": "144.05"
+                },
+                {
+                    "name": "seagull_3",
+                    "x": "1152.3",
+                    "y": "802.15",
+                    "width": "159.95",
+                    "height": "144.05"
+                },
+                {
+                    "name": "seagulls_1",
+                    "x": "1704.3",
+                    "y": "26.05",
+                    "width": "223.95",
+                    "height": "144.05"
+                },
+                {
+                    "name": "seagull_5",
+                    "x": "1832.45",
+                    "y": "514.1",
+                    "width": "159.95",
+                    "height": "144.05"
+                },
+                {
+                    "name": "seagull_6",
+                    "x": "1824.45",
+                    "y": "778.15",
+                    "width": "159.95",
+                    "height": "144.05"
+                },
+                {
+                    "name": "flag_1",
+                    "x": "1416.4",
+                    "y": "698.1",
+                    "width": "159.95",
+                    "height": "144.05"
+                },
+                {
+                    "name": "sail_1",
+                    "x": "1384.35",
+                    "y": "874.15",
+                    "width": "407.95",
+                    "height": "312.05"
+                },
+                {
+                    "name": "boat_1",
+                    "x": "1300.3",
+                    "y": "1186.2",
+                    "width": "672.2",
+                    "height": "256.1"
+                }
+            ]
+        },
+        {
+            "x": "48.6",
+            "y": "21.05",
+            "width": "1777.25",
+            "height": "492.3",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "12",
+            "text": "The whale swam on ahead of the boat and \nsoon disappeared over the horizon. Freddy \nthought he would follow the whale to find \nmore fish.",
+            "number": "6",
+            "dictionary": [
+                {
+                    "name": "sail_1",
+                    "x": "1216.3",
+                    "y": "618.15",
+                    "width": "496.15",
+                    "height": "320.15"
+                },
+                {
+                    "name": "flag_1",
+                    "x": "1336.35",
+                    "y": "458.05",
+                    "width": "159.95",
+                    "height": "144.05"
+                },
+                {
+                    "name": "sky_2",
+                    "x": "412.05",
+                    "y": "734.2",
+                    "width": "708.1",
+                    "height": "152"
+                },
+                {
+                    "name": "sea_8",
+                    "x": "1098.2",
+                    "y": "1356.95",
+                    "width": "616.4",
+                    "height": "157.45"
+                },
+                {
+                    "name": "boat_1",
+                    "x": "1120.15",
+                    "y": "958.15",
+                    "width": "628.3",
+                    "height": "428.15"
+                },
+                {
+                    "name": "seagulls_1",
+                    "x": "600.05",
+                    "y": "390",
+                    "width": "568.35",
+                    "height": "320.15"
+                },
+                {
+                    "name": "seagulls_5",
+                    "x": "1790.85",
+                    "y": "410",
+                    "width": "208",
+                    "height": "320.15"
+                },
+                {
+                    "name": "sea_1",
+                    "x": "23.95",
+                    "y": "906.15",
+                    "width": "1064.15",
+                    "height": "608.25"
+                },
+                {
+                    "name": "whale_1",
+                    "x": "92",
+                    "y": "742.1",
+                    "width": "320",
+                    "height": "144.05"
+                },
+                {
+                    "name": "sky_7",
+                    "x": "1802.85",
+                    "y": "50",
+                    "width": "208",
+                    "height": "320.15"
+                },
+                {
+                    "name": "sky_1",
+                    "x": "35.95",
+                    "y": "502.1",
+                    "width": "528.05",
+                    "height": "232.1"
+                },
+                {
+                    "name": "sea_5",
+                    "x": "1740.4",
+                    "y": "906.15",
+                    "width": "308.15",
+                    "height": "629.85"
+                }
+            ]
+        },
+        {
+            "x": "64.6",
+            "y": "9.3",
+            "width": "1875.85",
+            "height": "612.4",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "8",
+            "text": "Freddy saw a shape on the horizon.  Was it \nhis friend the whale? \nIt looked more like another boat. \nFreddy wondered who this was and as he got \ncloser he became more and more worried.",
+            "number": "7",
+            "dictionary": [
+                {
+                    "name": "sea_1",
+                    "x": "752.2",
+                    "y": "1026.2",
+                    "width": "1248.25",
+                    "height": "464.1"
+                },
+                {
+                    "name": "sails_1",
+                    "x": "216.05",
+                    "y": "874.15",
+                    "width": "312.05",
+                    "height": "336.1"
+                },
+                {
+                    "name": "flag_1",
+                    "x": "308.1",
+                    "y": "750.1",
+                    "width": "136.05",
+                    "height": "112.1"
+                },
+                {
+                    "name": "boat_1",
+                    "x": "208",
+                    "y": "1214.2",
+                    "width": "392.1",
+                    "height": "215.95"
+                },
+                {
+                    "name": "seagulls_1",
+                    "x": "800.4",
+                    "y": "618.7",
+                    "width": "1200.05",
+                    "height": "215.95"
+                },
+                {
+                    "name": "sky_2",
+                    "x": "528.1",
+                    "y": "834.25",
+                    "width": "1200.05",
+                    "height": "195.85"
+                },
+                {
+                    "name": "sky_3",
+                    "x": "1436.45",
+                    "y": "124.2",
+                    "width": "579.65",
+                    "height": "263.85"
+                },
+                {
+                    "name": "sky_1",
+                    "x": "34.25",
+                    "y": "618.7",
+                    "width": "746",
+                    "height": "127.45"
+                }
+            ]
+        },
+        {
+            "x": "49",
+            "y": "42.7",
+            "width": "1826.85",
+            "height": "1212.85",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "23",
+            "text": "It showed signs of being a pirate boat, with  \nblack sails and a skull and crossbones flag.  \nFreddy had heard of pirates  \nand was scared. \n \nThe pirates stole \nboats and cargo and set \npeople adrift on the open \nsea with just a rowing \nboat or a life belt.",
+            "number": "8",
+            "dictionary": [
+                {
+                    "name": "flag_2",
+                    "x": "1428.3",
+                    "y": "446.1",
+                    "width": "220.05",
+                    "height": "153.9"
+                },
+                {
+                    "name": "flag_1",
+                    "x": "1192.35",
+                    "y": "565.15",
+                    "width": "240.05",
+                    "height": "153.9"
+                },
+                {
+                    "name": "sail_5",
+                    "x": "1536.4",
+                    "y": "600",
+                    "width": "220.05",
+                    "height": "153.9"
+                },
+                {
+                    "name": "sail_6",
+                    "x": "1766.45",
+                    "y": "867.2",
+                    "width": "220.05",
+                    "height": "153.9"
+                },
+                {
+                    "name": "flag_3",
+                    "x": "1722.85",
+                    "y": "693.2",
+                    "width": "138",
+                    "height": "85.95"
+                },
+                {
+                    "name": "parrot_1",
+                    "x": "1684.8",
+                    "y": "779.15",
+                    "width": "238.1",
+                    "height": "71.9"
+                },
+                {
+                    "name": "pirate_1",
+                    "x": "1907.5",
+                    "y": "1021.1",
+                    "width": "94.05",
+                    "height": "121.9"
+                },
+                {
+                    "name": "pirate_2",
+                    "x": "1475.4",
+                    "y": "1151.35",
+                    "width": "94.05",
+                    "height": "121.9"
+                },
+                {
+                    "name": "pirate_4",
+                    "x": "1807.45",
+                    "y": "1081.25",
+                    "width": "94.05",
+                    "height": "121.9"
+                },
+                {
+                    "name": "pirate_3",
+                    "x": "1731.45",
+                    "y": "1137.3",
+                    "width": "94.05",
+                    "height": "121.9"
+                },
+                {
+                    "name": "boat_1",
+                    "x": "1228.35",
+                    "y": "1185.15",
+                    "width": "254.05",
+                    "height": "242"
+                },
+                {
+                    "name": "boat_2",
+                    "x": "1482.4",
+                    "y": "1277.3",
+                    "width": "548.2",
+                    "height": "161.9"
+                },
+                {
+                    "name": "seagull_2",
+                    "x": "1736.45",
+                    "y": "425.2",
+                    "width": "154",
+                    "height": "121.9"
+                },
+                {
+                    "name": "boat_3",
+                    "x": "1839.45",
+                    "y": "1151.35",
+                    "width": "213.95",
+                    "height": "121.9"
+                },
+                {
+                    "name": "boat_4",
+                    "x": "1573.45",
+                    "y": "1130.65",
+                    "width": "150",
+                    "height": "145.9"
+                },
+                {
+                    "name": "sea_1",
+                    "x": "0",
+                    "y": "1368.35",
+                    "width": "1206.25",
+                    "height": "161.8"
+                },
+                {
+                    "name": "seagull_1",
+                    "x": "1872.85",
+                    "y": "597.15",
+                    "width": "154",
+                    "height": "121.9"
+                },
+                {
+                    "name": "seagulls_1",
+                    "x": "1083.3",
+                    "y": "415.15",
+                    "width": "266.05",
+                    "height": "151.9"
+                },
+                {
+                    "name": "seagulls_2",
+                    "x": "926.3",
+                    "y": "1042.3",
+                    "width": "266.05",
+                    "height": "275.9"
+                },
+                {
+                    "name": "seagull_3",
+                    "x": "1123.3",
+                    "y": "713.2",
+                    "width": "154",
+                    "height": "121.9"
+                },
+                {
+                    "name": "sail_1",
+                    "x": "1288.35",
+                    "y": "757.25",
+                    "width": "220.05",
+                    "height": "153.9"
+                },
+                {
+                    "name": "sail_2",
+                    "x": "1296.35",
+                    "y": "1031.25",
+                    "width": "220.05",
+                    "height": "153.9"
+                },
+                {
+                    "name": "sail_3",
+                    "x": "1512.4",
+                    "y": "835.1",
+                    "width": "254.05",
+                    "height": "287.95"
+                }
+            ]
+        },
+        {
+            "x": "48.6",
+            "y": "33.3",
+            "width": "1971.9",
+            "height": "732.5",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "7",
+            "text": "Freddy didn't know what to do!  He was a \nfisherman and had no idea how to fight pirates. \nHe hoped the pirate boat hadn't seen him yet. \nHe had just started to turn his boat around \nwhen something extraordinary  \nhappened.",
+            "number": "9",
+            "dictionary": [
+                {
+                    "name": "pirate_1",
+                    "x": "1580.3",
+                    "y": "606.15",
+                    "width": "392.1",
+                    "height": "431.9"
+                },
+                {
+                    "name": "sails_1",
+                    "x": "142.1",
+                    "y": "1023.9",
+                    "width": "235.6",
+                    "height": "253.8"
+                },
+                {
+                    "name": "flag_1",
+                    "x": "211.6",
+                    "y": "930.25",
+                    "width": "102.75",
+                    "height": "84.65"
+                },
+                {
+                    "name": "boat_1",
+                    "x": "136.05",
+                    "y": "1280.65",
+                    "width": "296.05",
+                    "height": "163.05"
+                },
+                {
+                    "name": "sea_1",
+                    "x": "532.1",
+                    "y": "1058.3",
+                    "width": "1480.4",
+                    "height": "431.9"
+                },
+                {
+                    "name": "seagulls_1",
+                    "x": "1180.2",
+                    "y": "762.8",
+                    "width": "360.25",
+                    "height": "231.85"
+                },
+                {
+                    "name": "sky_1",
+                    "x": "476",
+                    "y": "626.3",
+                    "width": "692.2",
+                    "height": "387.85"
+                }
+            ]
+        },
+        {
+            "x": "48.6",
+            "y": "21.3",
+            "width": "850.45",
+            "height": "732.5",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "23",
+            "text": "In front of the pirate \nboat, up popped \nthe pink whale, \nwith a spout of \nwater and a  \nflourish. ",
+            "number": "10",
+            "dictionary": [
+                {
+                    "name": "pirate_1",
+                    "x": "1864.35",
+                    "y": "722.2",
+                    "width": "128.15",
+                    "height": "203.95"
+                },
+                {
+                    "name": "pirate_1",
+                    "x": "1700.4",
+                    "y": "820.3",
+                    "width": "128.15",
+                    "height": "203.95"
+                },
+                {
+                    "name": "sail_4",
+                    "x": "1406.25",
+                    "y": "226.05",
+                    "width": "260.2",
+                    "height": "192"
+                },
+                {
+                    "name": "flag_2",
+                    "x": "1270.2",
+                    "y": "18.3",
+                    "width": "260.2",
+                    "height": "192"
+                },
+                {
+                    "name": "flag_1",
+                    "x": "974.15",
+                    "y": "194.05",
+                    "width": "260.2",
+                    "height": "192"
+                },
+                {
+                    "name": "seagulls_1",
+                    "x": "826.05",
+                    "y": "430.75",
+                    "width": "148.1",
+                    "height": "408.05"
+                },
+                {
+                    "name": "seagulls_2",
+                    "x": "1742.35",
+                    "y": "82",
+                    "width": "260.2",
+                    "height": "192"
+                },
+                {
+                    "name": "seagulls_3",
+                    "x": "582",
+                    "y": "832.25",
+                    "width": "188.1",
+                    "height": "144"
+                },
+                {
+                    "name": "boat_1",
+                    "x": "1010",
+                    "y": "1090.25",
+                    "width": "520.35",
+                    "height": "192"
+                },
+                {
+                    "name": "boat_2",
+                    "x": "1724.25",
+                    "y": "1058.3",
+                    "width": "280.2",
+                    "height": "192"
+                },
+                {
+                    "name": "whale_1",
+                    "x": "269.95",
+                    "y": "1226.3",
+                    "width": "652.3",
+                    "height": "192"
+                },
+                {
+                    "name": "sea_4",
+                    "x": "946.1",
+                    "y": "1310.35",
+                    "width": "1112.5",
+                    "height": "208.05"
+                },
+                {
+                    "name": "pirate_1",
+                    "x": "1552.35",
+                    "y": "992.35",
+                    "width": "128.15",
+                    "height": "203.95"
+                },
+                {
+                    "name": "spout_1",
+                    "x": "217.9",
+                    "y": "914.25",
+                    "width": "378.2",
+                    "height": "312.1"
+                },
+                {
+                    "name": "sea_1",
+                    "x": "582",
+                    "y": "1034.3",
+                    "width": "372.2",
+                    "height": "192"
+                },
+                {
+                    "name": "sea_2",
+                    "x": "-10.1",
+                    "y": "1046.3",
+                    "width": "244.15",
+                    "height": "489.7"
+                },
+                {
+                    "name": "pirate_1",
+                    "x": "1336.3",
+                    "y": "904.3",
+                    "width": "128.15",
+                    "height": "203.95"
+                },
+                {
+                    "name": "sail_1",
+                    "x": "1056.25",
+                    "y": "448.2",
+                    "width": "292.2",
+                    "height": "203.95"
+                },
+                {
+                    "name": "sail_2",
+                    "x": "1056.25",
+                    "y": "772.25",
+                    "width": "260.2",
+                    "height": "203.95"
+                },
+                {
+                    "name": "sail_3",
+                    "x": "1336.3",
+                    "y": "564.2",
+                    "width": "352.25",
+                    "height": "280"
+                },
+                {
+                    "name": "sail_5",
+                    "x": "1692.55",
+                    "y": "584.3",
+                    "width": "180.1",
+                    "height": "192"
+                },
+                {
+                    "name": "parrot_1",
+                    "x": "1612.4",
+                    "y": "472.25",
+                    "width": "156.15",
+                    "height": "91.95"
+                },
+                {
+                    "name": "seagull_1",
+                    "x": "1294.1",
+                    "y": "356.15",
+                    "width": "112.15",
+                    "height": "83.9"
+                }
+            ]
+        },
+        {
+            "x": "-607.4",
+            "y": "15.75",
+            "width": "1498.65",
+            "height": "852.6",
+            "size": "68",
+            "alignment": "right",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {
+                "textoffset": {
+                    "x": 1050,
+                    "y": 0
+                }
+            },
+            "dictionary_length": "18",
+            "text": "Then, all around the boat, more and \nmore whales appeared until \nFreddy couldn't count them \nall.  The pirates were \nrunning all over the boat \nthrowing things at \nthe whales.",
+            "number": "11",
+            "dictionary": [
+                {
+                    "name": "whale_4",
+                    "x": "1395.7",
+                    "y": "1210.3",
+                    "width": "652.3",
+                    "height": "192"
+                },
+                {
+                    "name": "whale_2",
+                    "x": "1593.55",
+                    "y": "970.25",
+                    "width": "412.25",
+                    "height": "192"
+                },
+                {
+                    "name": "pirate_1",
+                    "x": "806.1",
+                    "y": "722.15",
+                    "width": "156.25",
+                    "height": "240"
+                },
+                {
+                    "name": "pirate_2",
+                    "x": "578",
+                    "y": "866.25",
+                    "width": "156.25",
+                    "height": "240"
+                },
+                {
+                    "name": "pirate_3",
+                    "x": "417.95",
+                    "y": "1066.25",
+                    "width": "156.25",
+                    "height": "240"
+                },
+                {
+                    "name": "pirate_4",
+                    "x": "249.9",
+                    "y": "946.2",
+                    "width": "156.25",
+                    "height": "240"
+                },
+                {
+                    "name": "boat_1",
+                    "x": "9.9",
+                    "y": "1218.3",
+                    "width": "396.25",
+                    "height": "208.05"
+                },
+                {
+                    "name": "boat_2",
+                    "x": "618.05",
+                    "y": "1114.25",
+                    "width": "396.25",
+                    "height": "208.05"
+                },
+                {
+                    "name": "sail_7",
+                    "x": "165.85",
+                    "y": "98.1",
+                    "width": "252.1",
+                    "height": "192"
+                },
+                {
+                    "name": "flag_4",
+                    "x": "41.9",
+                    "y": "0",
+                    "width": "252.1",
+                    "height": "91.95"
+                },
+                {
+                    "name": "whale_1",
+                    "x": "1178.15",
+                    "y": "874.2",
+                    "width": "396.25",
+                    "height": "208.05"
+                },
+                {
+                    "name": "whale_5",
+                    "x": "898.1",
+                    "y": "1314.3",
+                    "width": "412.25",
+                    "height": "192"
+                },
+                {
+                    "name": "whale_3",
+                    "x": "1114.15",
+                    "y": "1106.25",
+                    "width": "252.1",
+                    "height": "192"
+                },
+                {
+                    "name": "parrot_1",
+                    "x": "209.95",
+                    "y": "290.1",
+                    "width": "116.25",
+                    "height": "192"
+                },
+                {
+                    "name": "seagull_1",
+                    "x": "77.85",
+                    "y": "234.1",
+                    "width": "116.25",
+                    "height": "192"
+                },
+                {
+                    "name": "flag_1",
+                    "x": "386",
+                    "y": "258.05",
+                    "width": "252.1",
+                    "height": "192"
+                },
+                {
+                    "name": "sail_1",
+                    "x": "65.9",
+                    "y": "498.1",
+                    "width": "476.1",
+                    "height": "440.05"
+                },
+                {
+                    "name": "sail_2",
+                    "x": "542",
+                    "y": "562.15",
+                    "width": "252.1",
+                    "height": "192"
+                }
+            ]
+        },
+        {
+            "x": "48.6",
+            "y": "37.3",
+            "width": "1683",
+            "height": "612.4",
+            "size": "undefined",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "10",
+            "text": "All the whales began to flap their tails \nuntil they created such a huge wave that \nthe pirate boat \nturned over \ncompletely. ",
+            "number": "12",
+            "dictionary": [
+                {
+                    "name": "whale_3",
+                    "x": "526.2",
+                    "y": "1194.35",
+                    "width": "604.15",
+                    "height": "280.05"
+                },
+                {
+                    "name": "whale_2",
+                    "x": "113.95",
+                    "y": "1186.3",
+                    "width": "412.25",
+                    "height": "192"
+                },
+                {
+                    "name": "whale_1",
+                    "x": "25.95",
+                    "y": "898.15",
+                    "width": "516.35",
+                    "height": "271.95"
+                },
+                {
+                    "name": "seagull_1",
+                    "x": "606",
+                    "y": "418.15",
+                    "width": "228.2",
+                    "height": "199.9"
+                },
+                {
+                    "name": "parrot_1",
+                    "x": "1778.9",
+                    "y": "286.1",
+                    "width": "228.2",
+                    "height": "199.9"
+                },
+                {
+                    "name": "wave_1",
+                    "x": "974.15",
+                    "y": "418.15",
+                    "width": "868.45",
+                    "height": "780.05"
+                },
+                {
+                    "name": "flag_1",
+                    "x": "1830.3",
+                    "y": "618.05",
+                    "width": "228.2",
+                    "height": "199.9"
+                },
+                {
+                    "name": "flag_2",
+                    "x": "1819.8",
+                    "y": "842.3",
+                    "width": "228.2",
+                    "height": "199.9"
+                },
+                {
+                    "name": "wave_2",
+                    "x": "590",
+                    "y": "718.25",
+                    "width": "360.25",
+                    "height": "459.95"
+                },
+                {
+                    "name": "wave_3",
+                    "x": "1142.25",
+                    "y": "1210.3",
+                    "width": "859.9",
+                    "height": "325.7"
+                }
+            ]
+        },
+        {
+            "x": "48.6",
+            "y": "21.3",
+            "width": "1546.35",
+            "height": "372.25",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "10",
+            "text": "Freddy was amazed watching all this, \nuntil he realised that the waves were \nheading straight towards his boat!",
+            "number": "13",
+            "dictionary": [
+                {
+                    "name": "wave_1",
+                    "x": "34",
+                    "y": "494.15",
+                    "width": "932.05",
+                    "height": "488.1"
+                },
+                {
+                    "name": "wave_2",
+                    "x": "1630.45",
+                    "y": "486.1",
+                    "width": "363.95",
+                    "height": "488.1"
+                },
+                {
+                    "name": "sea_1",
+                    "x": "-25.95",
+                    "y": "1030.25",
+                    "width": "932.05",
+                    "height": "488.1"
+                },
+                {
+                    "name": "sea_2",
+                    "x": "1698.45",
+                    "y": "1006.25",
+                    "width": "363.95",
+                    "height": "488.1"
+                },
+                {
+                    "name": "flag_1",
+                    "x": "1362.4",
+                    "y": "486.1",
+                    "width": "212",
+                    "height": "160.1"
+                },
+                {
+                    "name": "sail_1",
+                    "x": "1054.25",
+                    "y": "646.2",
+                    "width": "364.05",
+                    "height": "536.15"
+                },
+                {
+                    "name": "sail_2",
+                    "x": "1418.45",
+                    "y": "646.2",
+                    "width": "212",
+                    "height": "448.2"
+                },
+                {
+                    "name": "seagull_1",
+                    "x": "1454.3",
+                    "y": "1094.4",
+                    "width": "212",
+                    "height": "160.1"
+                },
+                {
+                    "name": "boat_1",
+                    "x": "942.2",
+                    "y": "1266.25",
+                    "width": "708.65",
+                    "height": "200.2"
+                },
+                {
+                    "name": "sky_1",
+                    "x": "1630.45",
+                    "y": "6.05",
+                    "width": "404",
+                    "height": "463.95"
+                }
+            ]
+        },
+        {
+            "x": "48.6",
+            "y": "21.3",
+            "width": "1494.3",
+            "height": "372.25",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "1",
+            "text": "Freddy held on to the boat and held \nhis breath as the water swept right \nover him.",
+            "number": "14",
+            "dictionary": [
+                {
+                    "name": "wave_1",
+                    "x": "45.6",
+                    "y": "418.05",
+                    "width": "1956.4",
+                    "height": "1104.35"
+                }
+            ]
+        },
+        {
+            "x": "36.6",
+            "y": "21.3",
+            "width": "1806.4",
+            "height": "732.5",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "14",
+            "text": "When the water went down, Freddy could \nsee some very wet and sorry looking pirates \nrowing back over the horizon. The whale \nand his friends were basking in the \nsunlight and blowing the occasional \nwater spout.",
+            "number": "15",
+            "dictionary": [
+                {
+                    "name": "whale_1",
+                    "x": "65.95",
+                    "y": "1242.25",
+                    "width": "556.1",
+                    "height": "160.1"
+                },
+                {
+                    "name": "whale_5",
+                    "x": "1178.25",
+                    "y": "1190.2",
+                    "width": "556.1",
+                    "height": "272.1"
+                },
+                {
+                    "name": "spout_1",
+                    "x": "842.25",
+                    "y": "730.15",
+                    "width": "330.15",
+                    "height": "296.1"
+                },
+                {
+                    "name": "spout_2",
+                    "x": "311.9",
+                    "y": "974.1",
+                    "width": "330.15",
+                    "height": "296.1"
+                },
+                {
+                    "name": "sea_1",
+                    "x": "668.15",
+                    "y": "1338.35",
+                    "width": "507.85",
+                    "height": "188.1"
+                },
+                {
+                    "name": "sea_2",
+                    "x": "1758.5",
+                    "y": "1214.25",
+                    "width": "259.8",
+                    "height": "321.7"
+                },
+                {
+                    "name": "whale_4",
+                    "x": "838.15",
+                    "y": "1010.15",
+                    "width": "708.2",
+                    "height": "160.1"
+                },
+                {
+                    "name": "whale_2",
+                    "x": "90",
+                    "y": "974.1",
+                    "width": "248",
+                    "height": "212.05"
+                },
+                {
+                    "name": "whale_3",
+                    "x": "642.05",
+                    "y": "1170.25",
+                    "width": "460.15",
+                    "height": "160.1"
+                },
+                {
+                    "name": "seagull_2",
+                    "x": "1650.35",
+                    "y": "698.1",
+                    "width": "291.9",
+                    "height": "208.15"
+                },
+                {
+                    "name": "seagull_1",
+                    "x": "442.05",
+                    "y": "750.1",
+                    "width": "276.1",
+                    "height": "160.1"
+                },
+                {
+                    "name": "seagull_3",
+                    "x": "1741.45",
+                    "y": "346.05",
+                    "width": "187.8",
+                    "height": "168.1"
+                },
+                {
+                    "name": "seagull_4",
+                    "x": "1314.4",
+                    "y": "738.8",
+                    "width": "187.8",
+                    "height": "168.1"
+                },
+                {
+                    "name": "pirate_1",
+                    "x": "1710.45",
+                    "y": "954.2",
+                    "width": "291.9",
+                    "height": "208.15"
+                }
+            ]
+        },
+        {
+            "x": "200.6",
+            "y": "37.3",
+            "width": "1811.4",
+            "height": "972.7",
+            "size": "68",
+            "alignment": "center",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "2",
+            "text": "Gradually the whales headed over the \nhorizon and the bay was peaceful again. \nFreddy was very grateful to the whales  \nfor helping him escape from the pirate boat. \n \nAll the excitement had quite worn him  \nout though and he decided to turn his  \nboat around and head for home.",
+            "number": "16",
+            "dictionary": [
+                {
+                    "name": "sea_1",
+                    "x": "62.05",
+                    "y": "1298.25",
+                    "width": "1924.35",
+                    "height": "208.15"
+                },
+                {
+                    "name": "seagulls_1",
+                    "x": "54.05",
+                    "y": "994.25",
+                    "width": "1924.35",
+                    "height": "208.15"
+                }
+            ]
+        },
+        {
+            "x": "56.6",
+            "y": "5.3",
+            "width": "1794.8",
+            "height": "1092.75",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "12",
+            "text": "As Freddy took his eyes off the horizon and \nlooked around at his boat he was even \nmore amazed than he had \nbeen earlier. \n \nThe entire deck, sails  \nand the rigging \nwere completely \ncovered in fish!",
+            "number": "17",
+            "dictionary": [
+                {
+                    "name": "sea_1",
+                    "x": "10.05",
+                    "y": "1114.2",
+                    "width": "908.3",
+                    "height": "408.15"
+                },
+                {
+                    "name": "seagulls_1",
+                    "x": "1834.45",
+                    "y": "230.05",
+                    "width": "164",
+                    "height": "552.2"
+                },
+                {
+                    "name": "fish_4",
+                    "x": "1630.4",
+                    "y": "1138.25",
+                    "width": "251.95",
+                    "height": "176.15"
+                },
+                {
+                    "name": "boat_1",
+                    "x": "970.35",
+                    "y": "1262.35",
+                    "width": "880.25",
+                    "height": "196.15"
+                },
+                {
+                    "name": "flag_1",
+                    "x": "1194.25",
+                    "y": "306.05",
+                    "width": "152.05",
+                    "height": "152.1"
+                },
+                {
+                    "name": "seagull_2",
+                    "x": "742.2",
+                    "y": "814.15",
+                    "width": "251.95",
+                    "height": "176.15"
+                },
+                {
+                    "name": "seagull_1",
+                    "x": "942.3",
+                    "y": "458.15",
+                    "width": "251.95",
+                    "height": "176.15"
+                },
+                {
+                    "name": "fish_1",
+                    "x": "1222.3",
+                    "y": "430.1",
+                    "width": "251.95",
+                    "height": "176.15"
+                },
+                {
+                    "name": "fish_2",
+                    "x": "1600.45",
+                    "y": "306.05",
+                    "width": "251.95",
+                    "height": "176.15"
+                },
+                {
+                    "name": "sail_2",
+                    "x": "1346.3",
+                    "y": "582.15",
+                    "width": "480",
+                    "height": "472.2"
+                },
+                {
+                    "name": "sail_1",
+                    "x": "1062.25",
+                    "y": "606.25",
+                    "width": "251.95",
+                    "height": "356.2"
+                },
+                {
+                    "name": "fish_3",
+                    "x": "970.35",
+                    "y": "1014.25",
+                    "width": "480.1",
+                    "height": "248.1"
+                }
+            ]
+        },
+        {
+            "x": "64.6",
+            "y": "33.3",
+            "width": "1870.05",
+            "height": "1092.75",
+            "size": "undefined",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "1",
+            "text": "Freddy realised that as the massive wave had \nwashed over the boat it must have left all \nthe fish behind. When he put them \ninto the baskets he counted enough for his \nvillage and the one next door. \n \nNow he was even  \nmore grateful  \nto the whales.  ",
+            "number": "18",
+            "dictionary": [
+                {
+                    "name": "fish_1",
+                    "x": "802.2",
+                    "y": "1074.2",
+                    "width": "1228.25",
+                    "height": "448.3"
+                }
+            ]
+        },
+        {
+            "x": "64.6",
+            "y": "21.3",
+            "width": "1780.2",
+            "height": "372.25",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "14",
+            "text": "As the village came into sight on the shore, \nFreddy could almost smell the fish he \nwould cook for his tea...",
+            "number": "19",
+            "dictionary": [
+                {
+                    "name": "sea_1",
+                    "x": "922.25",
+                    "y": "978.15",
+                    "width": "1108.25",
+                    "height": "536.2"
+                },
+                {
+                    "name": "flag_1",
+                    "x": "482.1",
+                    "y": "426.05",
+                    "width": "163.9",
+                    "height": "176.15"
+                },
+                {
+                    "name": "sky_1",
+                    "x": "1210.25",
+                    "y": "251.95",
+                    "width": "830.35",
+                    "height": "279.9"
+                },
+                {
+                    "name": "sea_1",
+                    "x": "-13.95",
+                    "y": "922.2",
+                    "width": "235.95",
+                    "height": "544.2"
+                },
+                {
+                    "name": "houses_2",
+                    "x": "1290.35",
+                    "y": "780.15",
+                    "width": "754.2",
+                    "height": "196.15"
+                },
+                {
+                    "name": "cat_1",
+                    "x": "1224.25",
+                    "y": "794",
+                    "width": "65.8",
+                    "height": "176.15"
+                },
+                {
+                    "name": "seagulls_2",
+                    "x": "706.2",
+                    "y": "474.1",
+                    "width": "492.2",
+                    "height": "328.25"
+                },
+                {
+                    "name": "seagulls_1",
+                    "x": "10.05",
+                    "y": "554.1",
+                    "width": "251.95",
+                    "height": "272.15"
+                },
+                {
+                    "name": "sail_1",
+                    "x": "282.05",
+                    "y": "626.1",
+                    "width": "424.2",
+                    "height": "424.2"
+                },
+                {
+                    "name": "boat_1",
+                    "x": "210.1",
+                    "y": "1210.25",
+                    "width": "459.95",
+                    "height": "176.15"
+                },
+                {
+                    "name": "fish_1",
+                    "x": "562.2",
+                    "y": "1066.25",
+                    "width": "251.95",
+                    "height": "176.15"
+                },
+                {
+                    "name": "seagull_1",
+                    "x": "754.25",
+                    "y": "890.1",
+                    "width": "139.95",
+                    "height": "176.15"
+                },
+                {
+                    "name": "island_1",
+                    "x": "1236.35",
+                    "y": "531.8",
+                    "width": "804.2",
+                    "height": "252.3"
+                },
+                {
+                    "name": "houses_1",
+                    "x": "922.25",
+                    "y": "794",
+                    "width": "302",
+                    "height": "184.15"
+                }
+            ]
+        },
+        {
+            "x": "75.4",
+            "y": "54.3",
+            "width": "1628.8",
+            "height": "492.3",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "5",
+            "text": "It was then that Mum popped her head \naround the door and said, \"Freddy,  \nstop playing with your boats now. \nCome and get ready. It's fish for tea!\"",
+            "number": "20",
+            "dictionary": [
+                {
+                    "name": "sail_1",
+                    "x": "1038.3",
+                    "y": "962.2",
+                    "width": "251.95",
+                    "height": "176.15"
+                },
+                {
+                    "name": "boat_1",
+                    "x": "1064.3",
+                    "y": "1144.3",
+                    "width": "180.05",
+                    "height": "76.15"
+                },
+                {
+                    "name": "duck_1",
+                    "x": "1112.4",
+                    "y": "712",
+                    "width": "272.15",
+                    "height": "184.15"
+                },
+                {
+                    "name": "whale_1",
+                    "x": "914.2",
+                    "y": "1230.25",
+                    "width": "427.95",
+                    "height": "216.25"
+                },
+                {
+                    "name": "pirate_1",
+                    "x": "1352.4",
+                    "y": "970.3",
+                    "width": "539.95",
+                    "height": "424.25"
+                }
+            ]
+        },
+        {
+            "x": "45",
+            "y": "19.15",
+            "width": "153.6",
+            "height": "132.05",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "0",
+            "text": "",
+            "number": "21"
+        }
+    ],
+    "id": "y"
+};
+  </script>
+  <script src="env.js"></script>
+  <script src="build/build.js"></script>
+  <script>
+    var $ = require('jquery');
+    
+    function runApp(){
+      
+      var app = require('storytimeislandbook/app');
+      app();
+      
+    }
+
+    function onDeviceReady(){
+      $(runApp);
+    }
+
+    function exitFromApp(){
+      navigator.app.exitApp();
+    }
+
+    if(window.$phonegap){
+      document.addEventListener("deviceready", runApp, false);
+      document.addEventListener("backbutton", exitFromApp, false);
+      document.addEventListener("pause", exitFromApp, false);
+      document.addEventListener("menubutton", exitFromApp, false);
+    }
+    else{
+      onDeviceReady();
+    }
+  </script>  
+
+
+  <!--
+    HERE
+   -->
+</body>
+</html>
