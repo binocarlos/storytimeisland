@@ -43,8 +43,11 @@ app.use(function(req, res, next){
 				res.send(req.url + ' not found');
 				return;	
 			}
-			if(content.indexOf('<!-- storytimewrapper -->')==0){
-				res.render('layout', {
+			var match = content.match(/^\s*<\!--\s*storytimewrapper(:\w+)?/)
+
+			if(match){
+				var template = match[1] ? match[1].replace(/^:/, '') : 'layout';
+				res.render(template, {
 					body:content
 				})
 			}
