@@ -1,0 +1,46 @@
+<script src="/js/jquery.js"></script>
+<div id="back">
+	<div id="cat">
+
+     </div>
+
+</div>
+
+
+
+<style>
+
+#cat{
+	width:100px;
+	height:100px;
+	background-color: red;
+	position: absolute;
+	top: 510px;
+	
+
+}
+
+#back{
+	width: 900px;
+	height: 600px;
+	background-color: yellow;
+}
+
+</style>
+
+
+
+<script>
+
+	$(function(){
+		console.log('-------------------------------------------');
+		console.log('WE ARE HERE');
+		
+		var cat = $('#cat');
+
+		cat.click(function(){
+			alert('hello world');
+		})
+	})
+  
+</script>
