@@ -1,0 +1,711 @@
+<html>
+<head>
+  <title>Frank The Fireman</title>
+  <link rel="stylesheet" type="text/css" href="build/build.css">
+  <!--[if lte IE 9]>
+    <script src="build/storytimeislandbook/shim.js"></script>
+  <![endif]-->
+  <style type="text/css">
+
+
+
+    #bookviewer .pagebg1{
+      background:url(images/page1.png);
+    }
+
+
+
+    #bookviewer .pagebg2{
+      background:url(images/page2.png);
+    }
+
+
+
+    #bookviewer .pagebg3{
+      background:url(images/page3.png);
+    }
+
+
+
+    #bookviewer .pagebg4{
+      background:url(images/page4.png);
+    }
+
+
+
+    #bookviewer .pagebg5{
+      background:url(images/page5.png);
+    }
+
+
+
+    #bookviewer .pagebg6{
+      background:url(images/page6.png);
+    }
+
+
+  </style>
+</head>
+<body>
+  
+  <div id="home">
+
+  </div>
+
+  <table width=100% height=100% cellspacing=0 cellpadding=0>
+    <tr>
+      <td align=center valign=middle>
+        <div id="bookviewer">
+            
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="arrow leftarrow"></div>
+  <div class="arrow rightarrow"></div>
+  
+  <div id="homebutton">
+    <img src="build/storytimeislandbook/img/home.png" />
+  </div>
+
+  <div id="teddybutton">
+    <img class="normal" src="build/storytimeislandbook/img/cornertab.png" />
+    <img class="highlight" src="build/storytimeislandbook/img/cornertabactive.png" />
+  </div>
+
+
+  <script id="homepagetemplate" type="text/template">
+
+    <div id="homeloading">
+      <table width="100%" height="100%">
+        <tr>
+          <td align=center valign=middle>
+            <img src="build/storytimeislandbook/img/buddy.png" />
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="homeloaded" style="display:none;">
+      <table width="100%">
+        <tr>
+          <td colspan=3 align=center height=1>
+            <img id="logoimage" src="build/storytimeislandbook/img/logo.png" />
+          </td>
+        </tr>
+        <tr>
+          <td width=50% align=right valign=top>
+            <div id="nobubblebutton" class="pointercursor tapbutton">
+              <img id="nobubbleimage" src="build/storytimeislandbook/img/nobubble.png" /><br /><br />
+              <div id="nobubbletab" class="homepagetab">grownup reads</div>
+            </div>
+          </td>
+          <td align=center width=1 id="booktd" style="padding-top:0px;">
+            <img id="frontpageimage" class="pointercursor boxshadow tapbutton" src="icons/frontpage.png" />
+          </td>
+          <td width=50% align=left valign=top>
+            <div id="bubblebutton" class="pointercursor tapbutton">
+              <img id="bubbleimage" src="build/storytimeislandbook/img/bubble.png" /><br /><br />
+              <div id="bubbletab" class="homepagetab">reads itself</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div id="teddyholder"></div>
+    </div>
+  </script>
+
+  <script id="lastpagetemplate" type="text/template">
+    <div>
+	<table width=100% height=100% border=0>
+		<tr>
+			<td align=center valign=middle>
+					<a href="http://www.storytimeisland.com/appstore.html" target="_blank">
+						<img width="200" height="83" src="build/storytimeislandbook/img/logo.png" border=0 />
+					</a><br /><br />
+					<div class="lastpageinfo">
+						Explore more books on the <a href="http://www.storytimeisland.com/appstore.html" target="_blank">Story Time Island App Store page</a>
+					</div>
+			</td>
+		</tr>
+	</table>
+</div>
+
+  </script>
+  
+  <script id="teddytemplate" type="text/template">
+    <div id="teddy">
+      <div class="body"></div>
+      <div class="lefteye"></div>
+      <div class="righteye"></div>
+      <div class="mouth">
+        <div class="mouthimg"></div>
+      </div>
+      <div class="arm"></div>
+    </div>
+  </script>
+
+  <script>
+    window.$storytimebook = {
+    "config": {
+        "pages": 6,
+        "width": 2714,
+        "height": 1536,
+        "title": "Frank The Fireman",
+        "id": "frank",
+        "author": "Annie Davenport",
+        "description": "Frank is a fireman.  He races to Mrs Jones garden to put out a fire and is surprised by what he finds!",
+        "book": {
+            "page_thickness": 14,
+            "animation_time": 600
+        },
+        "test_page_OFF": 1,
+        "highlighters": [
+            [],
+            [
+                174,
+                530,
+                712,
+                1575,
+                1757,
+                2184,
+                2421,
+                2738,
+                4131,
+                4321,
+                4700,
+                5318,
+                5793,
+                6481,
+                6884,
+                7573,
+                7834,
+                8238,
+                8902,
+                9124,
+                9314,
+                9836,
+                9971,
+                10089
+            ],
+            [
+                458,
+                687,
+                959,
+                1046,
+                1210,
+                1471,
+                1864,
+                2300,
+                2430,
+                3215,
+                3346,
+                3476,
+                3891,
+                4327,
+                4653,
+                4937,
+                5765,
+                5885,
+                6048,
+                6321,
+                6498,
+                6863,
+                6987,
+                7139,
+                8468,
+                8827,
+                9285,
+                9590,
+                9743,
+                9983,
+                11116,
+                11345,
+                11715,
+                11846,
+                12031,
+                12337,
+                13416,
+                13546,
+                14059,
+                14233
+            ],
+            [
+                530,
+                1180,
+                1591,
+                2122,
+                2305,
+                2387,
+                2579,
+                2771,
+                2971,
+                3247,
+                3658,
+                5158,
+                5515,
+                5762,
+                5880,
+                6704,
+                6886,
+                7170,
+                7581,
+                7746,
+                7938,
+                8231,
+                9063,
+                9328,
+                9722,
+                9859,
+                9932,
+                10106,
+                10727,
+                11029,
+                11395,
+                11551,
+                11715
+            ],
+            [
+                278,
+                695,
+                1213,
+                1554,
+                2021,
+                2615,
+                2805,
+                2918,
+                3348,
+                3803,
+                3916,
+                4283,
+                4775,
+                5091,
+                5458,
+                6882,
+                7024,
+                7163,
+                7441,
+                7668,
+                8035,
+                8300,
+                8490,
+                8679,
+                8806,
+                8907,
+                9930,
+                10170,
+                10423,
+                10966,
+                11294,
+                11446,
+                11762,
+                12431,
+                12659,
+                12785,
+                13240,
+                13909,
+                14099,
+                14907,
+                15160,
+                15324,
+                15615,
+                15893,
+                16070,
+                16335,
+                16562
+            ]
+        ]
+    },
+    "pages": [
+        {
+            "x": "301.75",
+            "y": "3",
+            "width": "750.4",
+            "height": "132.05",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "0",
+            "text": "Frank the Fireman",
+            "number": "1"
+        },
+        {
+            "x": "369",
+            "y": "13.15",
+            "width": "1985.3",
+            "height": "395.35",
+            "size": "70",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "0",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {
+                "sounds": {
+                    "station": {
+                        "text": "fire station",
+                        "sound": "station"
+                    },
+                    "engine": {
+                        "text": "fire engine",
+                        "sound": "engine1"
+                    }
+                }
+            },
+            "dictionary_length": "13",
+            "text": "Frank the Fireman was cleaning his fire engine. \nHe washed it, soaped it, rinsed it and polished \nit until it gleamed in the sun.",
+            "number": "2",
+            "dictionary": [
+                {
+                    "name": "engine_1",
+                    "x": "704.15",
+                    "y": "556",
+                    "width": "464.2",
+                    "height": "416"
+                },
+                {
+                    "name": "cat",
+                    "x": "2192.6",
+                    "y": "929.1",
+                    "width": "180.75",
+                    "height": "188.2"
+                },
+                {
+                    "name": "station_1",
+                    "x": "227.85",
+                    "y": "351.95",
+                    "width": "392.15",
+                    "height": "728.05"
+                },
+                {
+                    "name": "station_2",
+                    "x": "2204.45",
+                    "y": "279.95",
+                    "width": "390.25",
+                    "height": "611.95"
+                },
+                {
+                    "name": "station_3",
+                    "x": "1636.3",
+                    "y": "249.35",
+                    "width": "548.45",
+                    "height": "263.75"
+                },
+                {
+                    "name": "engine_1",
+                    "x": "886.2",
+                    "y": "980.1",
+                    "width": "284.15",
+                    "height": "367.95"
+                },
+                {
+                    "name": "engine_2",
+                    "x": "1208.25",
+                    "y": "513.1",
+                    "width": "968.2",
+                    "height": "480.1"
+                },
+                {
+                    "name": "engine_3",
+                    "x": "1570.2",
+                    "y": "993.2",
+                    "width": "365.45",
+                    "height": "266.2"
+                },
+                {
+                    "name": "wheel_1",
+                    "x": "1318.75",
+                    "y": "1028.2",
+                    "width": "242.85",
+                    "height": "412.25"
+                },
+                {
+                    "name": "wheel_2",
+                    "x": "1938",
+                    "y": "1009.2",
+                    "width": "137.8",
+                    "height": "288.15"
+                },
+                {
+                    "name": "bucket",
+                    "x": "704.15",
+                    "y": "1371.35",
+                    "width": "60.55",
+                    "height": "92.85"
+                },
+                {
+                    "name": "bubbles_1",
+                    "x": "774.2",
+                    "y": "1371.35",
+                    "width": "61.55",
+                    "height": "92.85"
+                },
+                {
+                    "name": "bubbles_2",
+                    "x": "712.65",
+                    "y": "1268.35",
+                    "width": "147.5",
+                    "height": "92.85"
+                }
+            ]
+        },
+        {
+            "x": "385.65",
+            "y": "25.15",
+            "width": "1481.4",
+            "height": "1174.15",
+            "size": "70",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "0",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {
+                "sounds": {
+                    "engine": {
+                        "text": "fire engine",
+                        "sound": "engine1"
+                    }
+                }
+            },
+            "dictionary_length": "5",
+            "text": "The bell in the Fire Station began \nto ring and the station commander \ncame running out with a piece \nof paper in his hand. \n\"Mrs Jones' garden \nis on fire, I'm sure \nyou can handle \nthis, the address \nis here\".",
+            "number": "3",
+            "dictionary": [
+                {
+                    "name": "engine_1",
+                    "x": "2060.35",
+                    "y": "-11.95",
+                    "width": "1432.65",
+                    "height": "960.05"
+                },
+                {
+                    "name": "cat",
+                    "x": "1611.05",
+                    "y": "1215.25",
+                    "width": "76.7",
+                    "height": "198.2"
+                },
+                {
+                    "name": "bucket",
+                    "x": "1693.6",
+                    "y": "1269.8",
+                    "width": "116.6",
+                    "height": "209.05"
+                },
+                {
+                    "name": "bubbles_1",
+                    "x": "1693.6",
+                    "y": "1039.35",
+                    "width": "195.6",
+                    "height": "217.95"
+                },
+                {
+                    "name": "bubbles_2",
+                    "x": "1815.6",
+                    "y": "1278.4",
+                    "width": "95.55",
+                    "height": "186.9"
+                }
+            ]
+        },
+        {
+            "x": "388.55",
+            "y": "21.2",
+            "width": "1207.7",
+            "height": "1433.7",
+            "size": "70",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "0",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {
+                "sounds": {
+                    "engine": {
+                        "text": "fire engine",
+                        "sound": "siren"
+                    }
+                }
+            },
+            "dictionary_length": "3",
+            "text": "Frank quickly scrambled into \nthe rest of his fire \nfighting uniform, \nset off the siren \nand blue lights \non his fire \nengine and \ndrove out \nof the station \nas fast as \nhe could.",
+            "number": "4",
+            "dictionary": [
+                {
+                    "name": "engine_2",
+                    "x": "1148.4",
+                    "y": "908.55",
+                    "width": "791.7",
+                    "height": "487.35"
+                },
+                {
+                    "name": "wheel_1",
+                    "x": "2012.6",
+                    "y": "968.6",
+                    "width": "311.85",
+                    "height": "473.35"
+                },
+                {
+                    "name": "engine_1",
+                    "x": "1148.4",
+                    "y": "176.45",
+                    "width": "1552.05",
+                    "height": "732.1"
+                }
+            ]
+        },
+        {
+            "x": "372.6",
+            "y": "29.05",
+            "width": "1827.7",
+            "height": "914.55",
+            "size": "70",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "0",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {
+                "sounds": {
+                    "engine": {
+                        "text": "fire engine",
+                        "sound": "siren"
+                    }
+                }
+            },
+            "dictionary_length": "8",
+            "text": "Mrs Jones lived very close and he arrived \noutside her house about four minutes later. \nHe could see the smoke from the end of \nthe garden, so he carefully drove the \nfire engine up the lane alongside \nthe house so the water hose \nwould reach the fire.",
+            "number": "5",
+            "dictionary": [
+                {
+                    "name": "engine_1",
+                    "x": "1072.45",
+                    "y": "1125.15",
+                    "width": "1240.35",
+                    "height": "215.3"
+                },
+                {
+                    "name": "wheel_1",
+                    "x": "1240.5",
+                    "y": "1332.7",
+                    "width": "143.55",
+                    "height": "191.35"
+                },
+                {
+                    "name": "wheel_2",
+                    "x": "1872.65",
+                    "y": "1332.7",
+                    "width": "143.55",
+                    "height": "199.25"
+                },
+                {
+                    "name": "cat",
+                    "x": "1600.3",
+                    "y": "1060.9",
+                    "width": "48.65",
+                    "height": "62.1"
+                },
+                {
+                    "name": "engine_2",
+                    "x": "1384.05",
+                    "y": "1340.45",
+                    "width": "492.15",
+                    "height": "151.25"
+                },
+                {
+                    "name": "trees",
+                    "x": "369.6",
+                    "y": "940.6",
+                    "width": "640",
+                    "height": "335.35"
+                },
+                {
+                    "name": "fence",
+                    "x": "369.6",
+                    "y": "1308.7",
+                    "width": "640",
+                    "height": "131.3"
+                },
+                {
+                    "name": "house",
+                    "x": "1797.95",
+                    "y": "548.55",
+                    "width": "640",
+                    "height": "519.45"
+                }
+            ]
+        },
+        {
+            "x": "38.15",
+            "y": "28.95",
+            "width": "153.6",
+            "height": "132.05",
+            "size": "68",
+            "alignment": "left",
+            "face": "Sassoon Infant Std",
+            "characterPosition": "normal",
+            "lineSpacing": "-4",
+            "rightMargin": "0",
+            "leftMargin": "0",
+            "letterSpacing": "0",
+            "extra_config": {},
+            "dictionary_length": "0",
+            "text": "",
+            "number": "6"
+        }
+    ],
+    "id": "o"
+};
+  </script>
+  <script src="env.js"></script>
+  <script src="build/build.js"></script>
+  <script>
+    var $ = require('jquery');
+    
+    function runApp(){
+      
+      var app = require('storytimeislandbook/app');
+      app();
+      
+    }
+
+    function onDeviceReady(){
+      $(runApp);
+    }
+
+    function exitFromApp(){
+      navigator.app.exitApp();
+    }
+
+    if(window.$phonegap){
+      document.addEventListener("deviceready", runApp, false);
+      document.addEventListener("backbutton", exitFromApp, false);
+      document.addEventListener("pause", exitFromApp, false);
+      document.addEventListener("menubutton", exitFromApp, false);
+    }
+    else{
+      onDeviceReady();
+    }
+  </script>  
+
+
+  <!--
+    HERE
+   -->
+</body>
+</html>
