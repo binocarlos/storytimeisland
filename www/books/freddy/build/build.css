@@ -212,6 +212,42 @@ img{
 
 }
 
+.storytimeisland_book{
+  position:absolute;
+  left:0px;
+  top:0px;
+
+  transform-origin:50% 50%;
+  -webkit-transform-origin:50% 50%;
+  -ms-transform-origin:50% 50%;
+  -moz-transform-origin:50% 50%;
+
+
+}
+
+.bookanimator{
+  transition-timing-function:cubic-bezier(0.680, -0.550, 0.265, 1.550);
+  -webkit-transition-timing-function:cubic-bezier(0.680, -0.550, 0.265, 1.550);
+  -ms-transition-timing-function:cubic-bezier(0.680, -0.550, 0.265, 1.550);
+  -moz-transition-timing-function:cubic-bezier(0.680, -0.550, 0.265, 1.550);
+
+  transition:transform 400ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+  -webkit-transition:-webkit-transform 400ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+  -ms-transition:-ms-transform 400ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+  -moz-transition:-moz-transform 400ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+}
+
+.halfsize{
+  
+  transform:scale(.5,.5);
+  -webkit-transform:scale(.5,.5);
+  -ms-transform:scale(.5,.5);
+  -moz-transform:scale(.5,.5);
+
+
+
+}
+
 .boxshadow{
   -moz-box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
   -webkit-box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
@@ -440,6 +476,7 @@ html,body{
 
 #bookviewer{
   display:none;
+  cursor:pointer;
 }
 
 #homebutton{
@@ -523,10 +560,15 @@ html,body{
   display:none;
 }
 
-#book{  
-  width:1024px;
-  height:768px;  
+#bookviewer{
+  
 }
+
+#book{
+  width:1024px;
+  height:768px;
+}
+
 
 .homepagetab{
   
@@ -656,7 +698,7 @@ html,body{
   }
 
   #bubbletab{
-    margin-left:10px;
+    margin-right:10px;
   }
 
   #nobubbleimage{
@@ -668,7 +710,7 @@ html,body{
   #bubbleimage{
     height:40px;
     margin-top:20px;
-    margin-left:10px;
+    margin-right:10px;
   }
 
   #teddybutton img{
@@ -733,19 +775,19 @@ html,body{
   }
 
   #bubbletab{
-    margin-left:20px;
+    margin-right:20px;
   }
 
   #nobubbleimage{
-    height:60px;
+    height:40px;
     margin-top:30px;
     margin-right:20px;
   }
 
   #bubbleimage{
-    height:60px;
+    height:40px;
     margin-top:30px;
-    margin-left:20px;
+    margin-right:20px;
   }
 
   #teddybutton img{
@@ -810,19 +852,19 @@ html,body{
   }
 
   #bubbletab{
-    margin-left:30px;
+    margin-right:30px;
   }
 
   #nobubbleimage{
-    height:80px;
+    height:60px;
     margin-top:40px;
     margin-right:30px;
   }
 
   #bubbleimage{
-    height:80px;
+    height:60px;
     margin-top:40px;
-    margin-left:30px;
+    margin-right:30px;
   }
 
   #teddybutton img{
@@ -888,7 +930,7 @@ html,body{
   }
 
   #bubbletab{
-    margin-left:40px;
+    margin-right:40px;
   }
 
   #nobubbleimage{
@@ -900,7 +942,7 @@ html,body{
   #bubbleimage{
     height:100px;
     margin-top:50px;
-    margin-left:40px;
+    margin-right:40px;
   }
 
   #teddybutton img{
@@ -938,6 +980,7 @@ html,body{
 }
 
 @media only screen and (min-height: 768px) {
+  
   #book {
     width: 1024px !important;
     height: 768px !important;
@@ -965,7 +1008,7 @@ html,body{
   }
 
   #bubbletab{
-    margin-left:50px;
+    margin-right:50px;
   }
 
 
@@ -978,7 +1021,7 @@ html,body{
   #bubbleimage{
     height:120px;
     margin-top:60px;
-    margin-left:50px;
+    margin-right:50px;
   }
 
   #teddybutton img{
