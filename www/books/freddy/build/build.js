@@ -11738,7 +11738,7 @@ PageTurner.prototype.animate_direction = function(direction, nextpage){
       edge.css({
         opacity:0
       })
-    }, self.options.animtime/4);
+    }, (3*self.options.animtime)/8);
 
     setRotation(edge, edge_target_rotation);  
     
@@ -11769,7 +11769,7 @@ PageTurner.prototype.animate_direction = function(direction, nextpage){
     edge.css({
       opacity:1
     })
-  }, self.options.animtime/4);
+  }, self.options.animtime/8);
 
   self.emit('animate', side, nextpage);
 
@@ -11900,7 +11900,7 @@ var easings = {
 
 function setupAnimator(elem, sequence, ms, fn){
   //var easingname = sequence=='before' ? 'easeout' : 'easein';
-  var easingname = sequence=='before' ? 'easeout' : 'easein';
+  var easingname = sequence=='before' ? 'easein' : 'easeout';
   var easing = easings[easingname];
 
   ['', '-webkit-', '-moz-', '-ms-', '-o-'].forEach(function(prefix){
@@ -13822,34 +13822,6 @@ module.exports = function storytimeisland_book(options){
 
   /*
   
-    SIZING
-    
-  */
-  var shadowtimeout = null;
-
-  $(window).on('resize', function(){
-    shadowelem.css({
-      opacity:0
-    });
-    clearTimeout(shadowtimeout);
-    shadowtimeout = setTimeout(function(){
-      shadowelem.css({
-        opacity:1
-      });
-    }, 100)
-    if(activedictionary){
-      activedictionary.reset();
-    }
-
-    if(activehighlighter){
-      activehighlighter.reset();
-    }
-    
-  })
-
-
-  /*
-  
     GALLERY
     
   */
@@ -13933,22 +13905,64 @@ module.exports = function storytimeisland_book(options){
     gallery.$elem.fadeOut();
   }
 
-  book.fullsize = function(){
-    holderelem.removeClass('halfsize');
-  }
-
-  book.halfsize = function(){
-    
-    holderelem.addClass('halfsize');
-  }
 
   /*
   
-    LOGIC EVENTS
+    SIZING
     
   */
-  book.on('resize', function(newsize){
+  var shadowtimeout = null;
+
+  $(window).on('resize', function(){
+    /*
+    shadowelem.css({
+      opacity:0
+    });*/
+
+    /*
+    holderelem.css({
+      opacity:0
+    })
+  
+    clearTimeout(shadowtimeout);
+    shadowtimeout = setTimeout(function(){
+      shadowelem.css({
+        opacity:1
+      });
+    }, 100)
     
+    if(activedictionary){
+      activedictionary.reset();
+    }
+
+    if(activehighlighter){
+      activehighlighter.reset();
+    }*/
+    
+  })
+
+  var lastsize = null;
+
+  book.on('resize', function(newsize){
+
+    if(!newsize){
+      newsize = lastsize;
+    }
+
+    lastsize = newsize;
+    
+    if(activedictionary){
+      activedictionary.reset();
+    }
+
+    if(activehighlighter){
+      activehighlighter.reset();
+    }
+
+    holderelem.css({
+      opacity:0
+    })
+
     if(activedictionary){
       activedictionary.reset();
     }
@@ -13976,6 +13990,7 @@ module.exports = function storytimeisland_book(options){
       }
 
       var xpos = windowsize.width/2 - newsize.width/2;
+
       var ypos = windowsize.height/2 - newsize.height/2;
 
       currentpos = {
@@ -14004,6 +14019,14 @@ module.exports = function storytimeisland_book(options){
       })
 
       book.load_page(book.currentpage);
+
+      setTimeout(function(){
+        holderelem.hide();
+        holderelem.css({
+          opacity:1
+        })
+        holderelem.fadeIn();
+      }, 500);
 
     }, 10)
 
@@ -14276,7 +14299,7 @@ module.exports = function storytimeisland_book(options){
 }
 });
 require.register("binocarlos-storytimeisland-book/template.js", function(exports, require, module){
-module.exports = '<div class="storytimeisland_book halfsize bookanimator">\n    <div id="shadow"></div>\n    <div id="book">\n      \n    </div>\n    <div id="lastpage" style="display:none;position:absolute;padding-left:50px;">\n\n    </div>\n    \n</div>';
+module.exports = '<div class="storytimeisland_book halfsize">\n		<div id="bookwrapper">\n	    <div id="shadow"></div>\n	    <div id="book">\n	      \n	    </div>\n	    <div id="lastpage" style="display:none;position:absolute;padding-left:50px;">\n\n	    </div>\n	  </div>\n    \n</div>';
 });
 
 
@@ -14360,16 +14383,29 @@ module.exports = function storytimeisland_application(){
     loaddone = true;
 
     setTimeout(function(){
-      $('#homeloading').fadeOut(function(){
-        $('#homeloaded').fadeIn(function(){
 
-          book.show();
+      book.activate();
+
+
+      setTimeout(function(){
+
+        $('#homeloading').fadeOut(function(){
 
           setTimeout(function(){
-            home.start();
-          }, 1000)    
+            $('#bookviewer').fadeIn();
+
+            $('#homeloaded').fadeIn(function(){
+              setTimeout(function(){
+                home.start();
+              }, 1000)    
+            })  
+          }, 100)
+          
+        
+          
         })
-      })
+
+      }, 1000)
       
     }, 500)
   })
@@ -14423,13 +14459,16 @@ module.exports = function storytimeisland_book(bookselector, data, global_settin
     }
   })
 
-  book.show = function(){
-    
-    book.activate();
+  book._y_adjust = 100;
 
-    setTimeout(function(){
-      $('#bookviewer').fadeIn();
-    }, 500)
+
+  book.fullsize = function(){
+    $('.storytimeisland_book').removeClass('halfsize');
+  }
+
+  book.halfsize = function(){
+    
+    $('.storytimeisland_book').addClass('halfsize');
   }
 
   var activated_touch = false;
@@ -14675,9 +14714,9 @@ module.exports = function storytimeisland_home(homeselector, templates, global_s
       return;
     }
 
-    $('#frontpageimage').addClass('animated').addClass('tada');
+    $('#bookwrapper').addClass('animated').addClass('tada');
     setTimeout(function(){
-      $('#frontpageimage').removeClass('animated').removeClass('tada');
+      $('#bookwrapper').removeClass('animated').removeClass('tada');
 
       // remove the teddy once hes done his bit
       $('#teddy').fadeOut(1000, function(){
