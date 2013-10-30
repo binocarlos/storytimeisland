@@ -44,11 +44,19 @@ font-size: 26px;
 .carousel-control .icon-prev, .carousel-control .icon-next {
 width: 120px;
 height: 120px;
-margin-top: -15px;
-margin-left: -15px;
+
+
+bottom: 30%;
 font-size: 120px;
 }
+.carousel-control .icon-prev {
+left: 0px;
 
+}
+.carousel-control .icon-next {
+right: 0px;
+
+}
 
 
 /* Wrapper for page content to push down footer */
