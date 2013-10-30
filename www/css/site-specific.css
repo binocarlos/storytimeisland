@@ -22,7 +22,7 @@ html,
 body {
   height: 100%;
   font-family: Sassoon;
-  font-size:18px;
+  font-size:22px;
   padding:0px;
   margin:0px;
   background: url(/img/tile.png);
@@ -30,6 +30,23 @@ body {
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
   font-family: Sassoon; 
+}
+
+.lead {
+font-size: 26px;
+}
+
+.paddedcolumn {
+  padding:10px;
+}
+
+
+.carousel-control .icon-prev, .carousel-control .icon-next {
+width: 120px;
+height: 120px;
+margin-top: -15px;
+margin-left: -15px;
+font-size: 120px;
 }
 
 
