@@ -3,4 +3,10 @@ app:
   container: quarry/node
   install: npm install
   run: node ./index.js
-  domains: ./domains.txt
+  domains:
+    - "storytimeisland.com"
+    - "*.storytimeisland.com"
+    - "storytimeisland.co.uk"
+    - "*.storytimeisland.co.uk"
+    - "storytimeisland.digger.io"
+    - "storytimeisland.local.digger.io"
