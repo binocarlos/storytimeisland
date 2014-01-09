@@ -1,0 +1,6 @@
+app:
+  type: worker
+  container: quarry/node
+  install: npm install
+  run: node ./index.js
+  domains: ./domains.txt
