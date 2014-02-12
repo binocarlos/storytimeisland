@@ -2,7 +2,7 @@
 //setup Dependencies
 
 var express = require('express');
-
+var argv = require('optimist').argv;
 var http = require('http');
 var url = require('url');
 var engines = require('consolidate');
@@ -12,7 +12,7 @@ var fs = require('graceful-fs');
 
 //var stats = new StatsDClient({host: 'hq.local', port: 8125, prefix: 'app.storytimeisland',  debug: false});
 
-var port = process.argv[2] || 80;
+var port = argv.port || 80;
 
 var config = {};
 
