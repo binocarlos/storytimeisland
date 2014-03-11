@@ -1,14 +1,10 @@
-<!-- storytimewrapper -->
+<% include header.html %>
 <div style="width:95%;">
 	<div class="row">
 		<div class="col-sm-2">
 
-			<div id="back_row" class="text-center">
-				<button id="backbutton" class="btn btn-info">Back</a>
-			</div>
-
 			<div class="book_row text-center">
-				<a class="bookbutton" href="/books/freddy" target="bookiframe">
+				<a class="bookbutton" href="freddy.html">
 					<img class="book_icon boxshadow" src="img/books/freddy.png" border=0 /> <br /><br />
 
 					Full Book!
@@ -16,8 +12,8 @@
 			</div>
 
 			<div class="book_row text-center">
-				<a class="bookbutton" href="/books/frank" target="bookiframe">
-					<img class="book_icon boxshadow" src="img/books/frank.png" /> <br /><br />
+				<a class="bookbutton" href="frank.html">
+					<img class="book_icon boxshadow" src="img/books/frank.png" border=0 /> <br /><br />
 
 					Sample
 				</a>
@@ -101,15 +97,6 @@
 		</div>
 	
 
-
-		<!--
-			this is the book display iframe - it is hidden by default
-		 -->
-		<div id="bookdisplay" class="col-sm-10">
-			<div class="bookrender">
-				<iframe src="/blank.html" frameBorder="0" id="bookiframe" style="width:100%;height:100%;"></iframe>
-			</div>
-		</div>
 	</div>
 
 
@@ -141,42 +128,6 @@
 
  <script type='text/javascript'>
 
- /*
- 
- 	this means when the document is loaded in jQuery speak
- 	
- */
-  $(document).ready(function() {
-
-  	console.log('-------------------------------------------');
-  	console.log('read');
-  	// this code is run when the docuemnt is loaded
-
-  	// hide the back button and book display by default
-  	$('#back_row').hide();
-  	$('#bookdisplay').hide();
-
-    // tell book buttons that when they are clicked to hide the books and show the back button
-    $('.bookbutton').click(function(){
-    	$('.bookbutton').hide();
-    	$('#back_row').show();
-    	$('#homedisplay').hide();
-    	$('#bookdisplay').show();
-    })
-
-    // tell the back button that when it is clicked to show the homepage and hide the back button
-    $('#backbutton').click(function(){
-    	$('.bookbutton').show();
-    	$('#back_row').hide();
-    	$('#homedisplay').show();
-    	$('#bookdisplay').hide();
-
-    	// reset and hide the iframe
-    	$('#bookiframe').attr({
-    		src:'/blank.html'
-    	})
-    })
-
-  });
 
 </script>
+<% include footer.html %>

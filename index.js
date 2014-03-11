@@ -7,6 +7,7 @@ var http = require('http');
 var url = require('url');
 var engines = require('consolidate');
 var fs = require('graceful-fs');
+var Includes = require('html-include');
 
 //var StatsDClient = require('statsd-client');
 
@@ -27,41 +28,16 @@ app.use(express.favicon());
 app.use(express.query());
 app.use(express.bodyParser());
 
-app.engine('ejs', engines.ejs);
-app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
-
-app.use(function(req, res, next){
-	if(req.url=='/'){
-		req.url = '/index.html';
-	}
-
-	if(req.url.match(/\.html$/)){
-		fs.readFile(document_root + req.url, 'utf8', function(error, content){
-			if(error || !content){
-				res.statusCode=404;
-				res.send(req.url + ' not found');
-				return;	
-			}
-			var match = content.match(/^\s*<\!--\s*storytimewrapper(:\w+)?/)
-
-			if(match){
-				var template = match[1] ? match[1].replace(/^:/, '') : 'layout';
-				res.render(template, {
-					body:content
-				})
-			}
-			else{
-				res.send(content);
-			}
-		})
-	}
-	else{
-		next();
-	}
+var html = Includes({
+	document_root:document_root
 })
 
-app.use(express.static(document_root));
+html.on('page', function(path, vars, done){
+	done();
+})
+
+html.setup(app);
+app.use(html.serve);
 
 server.listen(port, function(error){
 	console.log('storytime island webserver listening on port: ' + port);
