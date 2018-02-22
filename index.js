@@ -13,7 +13,7 @@ var Includes = require('html-include');
 
 //var stats = new StatsDClient({host: 'hq.local', port: 8125, prefix: 'app.storytimeisland',  debug: false});
 
-var port = argv.port || 80;
+var port = process.env.PORT || 80;
 
 var config = {};
 

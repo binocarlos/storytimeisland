@@ -487,8 +487,8 @@ html,body{
 
 .arrow{
   opacity:0;
-  width:25px;
-  height:100px;
+  width:140px;
+  height:120px;
   cursor:pointer;
   display:none;
 }
@@ -500,8 +500,7 @@ html,body{
   left:10px;
   top:40%;
   background:url("storytimeislandbook/./img/leftarrow.png");
-  background-repeat: no-repeat;
-  background-position: 0% 50%;
+  background-size:cover;
 }
 
 .rightarrow{
@@ -511,8 +510,7 @@ html,body{
   right:10px;
   top:40%;
   background:url("storytimeislandbook/./img/rightarrow.png");
-  background-repeat: no-repeat;
-  background-position: 100% 50%;
+  background-size:cover;
 }
 
 

@@ -1,9 +1,9 @@
 <html>
 <head>
   <title>Freddy the Fisherman</title>
-  <link rel="stylesheet" type="text/css" href="build/build.css">
+  <link rel="stylesheet" type="text/css" href="../build/build.css">
   <!--[if lte IE 9]>
-    <script src="build/storytimeislandbook/shim.js"></script>
+    <script src="../build/storytimeislandbook/shim.js"></script>
   <![endif]-->
   <style type="text/css">
 
@@ -151,12 +151,12 @@
   <div class="arrow rightarrow"></div>
   
   <div id="homebutton">
-    <img src="build/storytimeislandbook/img/home.png" />
+    <img src="../build/storytimeislandbook/img/home.png" />
   </div>
 
   <div id="teddybutton">
-    <img class="normal" src="build/storytimeislandbook/img/cornertab.png" />
-    <img class="highlight" src="build/storytimeislandbook/img/cornertabactive.png" />
+    <img class="normal" src="../build/storytimeislandbook/img/cornertab.png" />
+    <img class="highlight" src="../build/storytimeislandbook/img/cornertabactive.png" />
   </div>
 
 
@@ -166,21 +166,23 @@
       <table width="100%" height="100%">
         <tr>
           <td align=center valign=middle>
-            <img src="build/storytimeislandbook/img/buddy.png" />
+            <img src="../build/storytimeislandbook/img/buddy.png" />
           </td>
         </tr>
       </table>
     </div>
     <div id="homeloaded" style="display:none;width:100%:height:100%;">
-      <img id="logoimage" src="build/storytimeislandbook/img/logo.png" />
+      <a href="/">
+            <img id="logoimage" src="../build/storytimeislandbook/img/logo.png" />
+        </a>
 
       <div id="bubbleholders">
         <div id="bubblebutton" class="pointercursor tapbutton">
-          <img id="bubbleimage" src="build/storytimeislandbook/img/bubble.png" /><br /><br />
+          <img id="bubbleimage" src="../build/storytimeislandbook/img/bubble.png" /><br /><br />
           <div id="bubbletab" class="homepagetab">reads itself</div>
         </div>
         <div id="nobubblebutton" class="pointercursor tapbutton">
-          <img id="nobubbleimage" src="build/storytimeislandbook/img/nobubble.png" /><br /><br />
+          <img id="nobubbleimage" src="../build/storytimeislandbook/img/nobubble.png" /><br /><br />
           <div id="nobubbletab" class="homepagetab">grownup reads</div>
         </div>
       </div>
@@ -195,9 +197,9 @@
 		<tr>
 			<td align=center valign=middle>
 					<div class="lastpageinfo">
-						<a href="#" onclick="window.open('http://www.storytimeisland.com', '_system');">
+						<a href="/">
 						Click here to explore the island!<br /><br />
-							<img width="200" height="83" src="build/storytimeislandbook/img/logo.png" border=0 />
+							<img width="200" height="83" src="../build/storytimeislandbook/img/logo.png" border=0 />
 						</a>
 					</div>
 			</td>
@@ -2774,7 +2776,7 @@
 };
   </script>
   <script src="env.js"></script>
-  <script src="build/build.js"></script>
+  <script src="../build/build.js"></script>
   <script>
     var $ = require('jquery');
     

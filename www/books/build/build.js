@@ -14361,7 +14361,11 @@ module.exports = function storytimeisland_application(){
  
   // the teddy homepage speaking
   home.on('teddysound', function(){
-    book.media.playsound('audio/teddy/all');
+    //book.media.playsound('audio/teddy/all');
+  })
+
+  home.on('startbook', function(){
+    book.begin()
   })
 
   book.on('begin', function(done){
@@ -14395,9 +14399,7 @@ module.exports = function storytimeisland_application(){
             $('#bookviewer').fadeIn();
 
             $('#homeloaded').fadeIn(function(){
-              setTimeout(function(){
-                home.start();
-              }, 1000)    
+               
             })  
           }, 100)
           
@@ -14418,7 +14420,7 @@ module.exports = function storytimeisland_application(){
   // tell the book media to load + teddy audio
   setTimeout(function(){
     book.load({
-      sounds:['audio/teddy/all']
+      sounds:[]//['audio/teddy/all']
     })
   }, 500)
   
@@ -14665,16 +14667,18 @@ var Hammer = require('hammer');
 
 module.exports = function storytimeisland_home(homeselector, templates, global_settings){
 
+  var module = new Emitter();
+
   var $elem = $(homeselector).html(templates.homepage);
 
   var active = true;
 
   function assign_audio_buttons(){
     $('#nobubblebutton').css({
-      opacity:global_settings.voice_audio ? .5 : 1
+      opacity:global_settings.voice_audio ? 1 : 1
     })
     $('#bubblebutton').css({
-      opacity:global_settings.voice_audio ? 1 : .5
+      opacity:global_settings.voice_audio ? 1 : 1
     })
   }
 
@@ -14682,6 +14686,7 @@ module.exports = function storytimeisland_home(homeselector, templates, global_s
 
   var currenteddy = Teddy('#teddyholder', templates);
 
+  $('#teddyholder').hide()
   var shaked = {};
 
   currenteddy.on('bubblemode', function(mode){
@@ -14753,7 +14758,7 @@ module.exports = function storytimeisland_home(homeselector, templates, global_s
     run_flicker();
   })
 
-  var module = new Emitter();
+  
     
   var hammertime;
 
@@ -14764,10 +14769,12 @@ module.exports = function storytimeisland_home(homeselector, templates, global_s
     nobubblebutton:function(){
       global_settings.voice_audio = false;
       assign_audio_buttons();
+      module.emit('startbook')
     },
     bubblebutton:function(){
       global_settings.voice_audio = true;
       assign_audio_buttons();
+      module.emit('startbook')
     }
   }
 
