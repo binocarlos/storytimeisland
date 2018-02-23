@@ -27,8 +27,8 @@ build:
     - docker build -t $IMAGE -f Dockerfile.nginx .
     - gcloud docker -- push $IMAGE
 
-deploy_staging:
-  stage: deploy_staging
+deploy:
+  stage: deploy
   variables:
     IMAGE: $DOCKER_REGISTRY/$GCP_PROJECT_ID/$IMAGE_WEBSITE:$CI_COMMIT_SHA
   before_script:
