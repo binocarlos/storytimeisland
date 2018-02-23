@@ -12,6 +12,7 @@ variables:
   GCP_ZONE: europe-west1-b
   GCP_CLUSTER_ID: appcluster
   NAMESPACE: storytimeisland
+  IMAGE_WEBSITE: website
 
 stages:
   - build
