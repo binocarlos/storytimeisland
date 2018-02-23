@@ -1,0 +1,39 @@
+image: binocarlos/cibase:v6
+
+# NOTE - this assumes the runner is using the host docker and there is only one runner
+# (i.e. it expects images it built in one job to be there for the next job)
+
+# TODO - we should use some kind of registry to solve above and that this has to all be on the same runner
+
+variables:
+  DOCKER_API_VERSION: "1.23"
+  DOCKER_REGISTRY: gcr.io
+  GCP_PROJECT_ID: webkit-servers
+  GCP_ZONE: europe-west1-b
+  GCP_CLUSTER_ID: appcluster
+  NAMESPACE: storytimeisland
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  variables:
+    IMAGE: $DOCKER_REGISTRY/$GCP_PROJECT_ID/$IMAGE_WEBSITE:$CI_COMMIT_SHA
+  before_script:
+    - bash scripts/ci_connect.sh
+  script:  
+    - docker build -t $IMAGE -f Dockerfile.nginx .
+    - gcloud docker -- push $IMAGE
+
+deploy_staging:
+  stage: deploy_staging
+  variables:
+    IMAGE: $DOCKER_REGISTRY/$GCP_PROJECT_ID/$IMAGE_WEBSITE:$CI_COMMIT_SHA
+  before_script:
+    - bash scripts/ci_connect.sh
+  script:
+    - cat deploy/deployment.yaml | envsubst
+    - cat deploy/deployment.yaml | envsubst | kubectl -f -
+    
