@@ -36,5 +36,5 @@ deploy:
     - bash scripts/ci_connect.sh
   script:
     - cat deploy/deployment.yaml | envsubst
-    - cat deploy/deployment.yaml | envsubst | kubectl -f -
+    - cat deploy/deployment.yaml | envsubst | kubectl apply -f -
     
