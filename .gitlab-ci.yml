@@ -22,7 +22,7 @@ build:
   variables:
     IMAGE: $DOCKER_REGISTRY/$GCP_PROJECT_ID/$IMAGE_WEBSITE:$CI_COMMIT_SHA
   before_script:
-    - bash /ciscripts/ci.sh connect
+    - bash scripts/ci_connect.sh
   script:  
     - docker build -t $IMAGE -f Dockerfile.nginx .
     - gcloud docker -- push $IMAGE
@@ -32,7 +32,7 @@ deploy:
   variables:
     IMAGE: $DOCKER_REGISTRY/$GCP_PROJECT_ID/$IMAGE_WEBSITE:$CI_COMMIT_SHA
   before_script:
-    - bash /ciscripts/ci.sh connect
+    - bash /ciscripts/ci_connect.sh
   script:
     - cat deploy/deployment.yaml | envsubst
     - cat deploy/deployment.yaml | envsubst | kubectl -f -

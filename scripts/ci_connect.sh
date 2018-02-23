@@ -2,7 +2,6 @@
 set -e
 
 export DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source "${DIR}/tools.sh"
 
 if [ -z "${GCLOUD_SERVICE_KEY}" ]; then
   echo >&2 "GCLOUD_SERVICE_KEY needed"
