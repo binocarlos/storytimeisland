@@ -1,41 +1,19 @@
-<% include header.html %>
-<div style="width:95%;">
-	<div class="row">
-		<div class="col-sm-2">
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+  <head>
+    <meta charset="utf-8">
+    <title>Story Time Island</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/site-specific.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>   
+  </head>
 
-			<div class="book_row text-center">
-				<a class="bookbutton" href="freddy.html">
-					<img class="book_icon boxshadow" src="img/books/freddy.png" border=0 /> <br /><br />
-
-					Full Book!
-				</a>
-			</div>
-
-			<div class="book_row text-center">
-				<a class="bookbutton" href="frank.html">
-					<img class="book_icon boxshadow" src="img/books/frank.png" border=0 /> <br /><br />
-
-					Sample
-				</a>
-			</div>
-
-		</div>
-
-
-		<!--
-			this is the book display iframe - it is hidden by default
-		 -->
-		<div id="bookdisplay" class="col-sm-10">
-			<div class="bookrender">
-				<iframe src="/books/freddy/index.html" frameBorder="0" id="bookiframe" style="width:100%;height:100%;"></iframe>
-			</div>
-		</div>
-	</div>
-
-
-
-</div>
-
-	
-
-<% include footer.html %>
+  <body style="height: 100%; margin: 0; padding: 0; overflow: hidden;">
+    <div style="height: 100%; width: 100%;">
+      <iframe src="/books/freddy/index.html" frameBorder="0" id="bookiframe" style="width: 100%; height: 100%; display: block;"></iframe>
+    </div>
+  </body>
+</html>
+  
